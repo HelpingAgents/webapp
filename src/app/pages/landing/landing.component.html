@@ -1,18 +1,16 @@
 <div class="flex flex-col justify-center p-8 h-screen">
-	<h2 class="text-3xl mb-16">
+	<h1 class="mb-16">
 		Hilfsbedürftige Menschen in der Coronakrise unterstützen...
-	</h2>
+	</h1>
 
 	<span class="mb-2">
 		Du willst hilfsbedürftige Menschen unterstützen? Ganz einfach von zuhause aus? Dann mach mit bei
 		NAME und nimm Anrufe von Hilfsbedürftigen entgegen!
 	</span>
 	<a routerLink="/introduction" class="mb-16 text-blue underline" href="#">So funktioniert's</a>
-	<button
-		routerLink="."
-		class="w-100 p-1 border-solid border border-darkgray rounded 
-        hover:bg-darkgray hover:text-white transition-all duration-200"
-	>
-		Jetzt mitmachen!
-	</button>
+	<div class="flex-grow">
+		<button routerLink="/register" class="button w-100">
+			Jetzt mitmachen!
+		</button>
+	</div>
 </div>

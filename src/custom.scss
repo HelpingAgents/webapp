@@ -1,0 +1,20 @@
+body {
+	@apply text-darkgray;
+}
+
+h1 {
+	@apply text-3xl;
+}
+
+.control {
+	@apply border rounded border-gray-300 px-2 py-1;
+}
+
+.button {
+	@apply border-solid border border-gray-600 rounded 
+	 transition-all duration-200 p-1;
+
+	&:hover {
+		@apply bg-darkgray text-white;
+	}
+}
