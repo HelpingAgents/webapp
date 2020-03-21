@@ -13,6 +13,7 @@
 				[formControl]="form.controls[i]"
 				class="control w-11 px-0 mt-12 text-center text-lg font-bold"
 				[class.border-error]="status === VerificationStatus.ERROR"
+				[class.invisible]="status === VerificationStatus.SUCCESS"
 				type="text"
 				inputmode="numeric"
 				#currentInput
@@ -33,13 +34,25 @@
 			>
 				Der Code war leider nicht korrekt. Versuche es noch einmal.
 			</span>
+			<div class="flex-grow"></div>
+			<button *ngSwitchCase="VerificationStatus.SUCCESS" class="button w-full">
+				Einführung starten
+			</button>
 		</ng-container>
 	</div>
-	<div class="px-8">
-		<strong class="w-full block">Keine SMS bekommen?</strong>
-		<span>
-			<a class="underline text-primary-light cursor-pointer" (click)="back()">Gehe zurück</a>
-			<span>, überprüfe deine Telefonnummer und versuche es nochmal.</span>
-		</span>
+	<div class="px-8 mt-8" [ngSwitch]="status">
+		<a
+			class="underline text-primary font-serif text-md cursor-pointer"
+			*ngSwitchCase="VerificationStatus.SUCCESS"
+		>
+			Einführung überspringen
+		</a>
+		<ng-container *ngSwitchDefault>
+			<strong class="w-full block">Keine SMS bekommen?</strong>
+			<span>
+				<a class="underline text-primary-light cursor-pointer" (click)="back()">Gehe zurück</a>
+				<span>, überprüfe deine Telefonnummer und versuche es nochmal.</span>
+			</span>
+		</ng-container>
 	</div>
 </div>
