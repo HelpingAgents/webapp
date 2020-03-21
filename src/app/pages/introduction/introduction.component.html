@@ -19,7 +19,13 @@
 		<button class="button w-full" [routerLink]="'/register'">Jetzt mitmachen!</button>
 	</div>
 	<div class="w-full flex justify-between items-center mt-6 px-8">
-		<div></div>
+		<app-arrow
+			[class.opacity-100]="!isFirstSlide"
+			[class.pointer-events-none]="isFirstSlide"
+			class="text-primary inline-block cursor-pointer
+		opacity-0 transition-opacity duration-100"
+			(click)="previous()"
+		></app-arrow>
 		<div class="flex">
 			<div
 				*ngFor="let i of carousel.pointNumbers"

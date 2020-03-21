@@ -25,14 +25,18 @@ export class IntroductionComponent implements AfterContentInit {
 	}
 
 	next() {
-		if (this.isLastSlide) {
-			// navigate
-		} else {
-			this.carousel.moveTo(this.carousel.currentSlide + 1);
-		}
+		this.carousel.moveTo(this.carousel.currentSlide + 1);
+	}
+
+	previous() {
+		this.carousel.moveTo(this.carousel.currentSlide - 1);
 	}
 
 	get isLastSlide() {
 		return this.carousel && isLastSlide(this.carousel);
+	}
+
+	get isFirstSlide() {
+		return this.carousel && !this.carousel.currentSlide;
 	}
 }
