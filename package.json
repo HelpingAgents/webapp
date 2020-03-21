@@ -5,8 +5,6 @@
 		"ng": "ng",
 		"start": "ng serve",
 		"build": "ng build --prod",
-		"publish": "mv ./dist/webapp/index.html ./dist/webapp/200.html && surge --project ./dist/webapp  --domain https://shoppingline.surge.sh",
-		"release": "npm run build && npm run publish",
 		"test": "ng test",
 		"lint": "ng lint",
 		"e2e": "ng e2e"
@@ -38,7 +36,6 @@
 		"@types/jasminewd2": "~2.0.3",
 		"@types/node": "^12.11.1",
 		"codelyzer": "^5.1.2",
-		"git-scripts": "^0.4.3",
 		"jasmine-core": "~3.5.0",
 		"jasmine-spec-reporter": "~4.2.1",
 		"karma": "~4.3.0",
@@ -50,15 +47,9 @@
 		"postcss-loader": "^3.0.0",
 		"postcss-scss": "^2.0.0",
 		"protractor": "~5.4.3",
-		"surge": "^0.21.3",
 		"tailwindcss": "^1.2.0",
 		"ts-node": "~8.3.0",
 		"tslint": "~5.18.0",
 		"typescript": "~3.7.5"
-	},
-	"git": {
-		"scripts": {
-			"pre-push": "npm run release"
-		}
 	}
 }
