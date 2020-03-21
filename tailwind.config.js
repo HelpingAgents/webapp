@@ -20,6 +20,22 @@ module.exports = {
 				},
 			},
 		},
+		fontFamily: {
+			serif: ['Crete Round', 'serif'],
+			sans: ['Open Sans', 'sans'],
+		},
+		fontSize: {
+			xl: '2.25rem',
+			lg: '1.25rem',
+			base: '0.9375rem',
+		},
+		borderRadius: {
+			lg: '0.9375rem',
+			default: '0.5rem',
+		},
+		boxShadow: {
+			lg: '0px 4px 40px rgba(0, 0, 0, 0.25)',
+		},
 	},
 	variants: {},
 	plugins: [],

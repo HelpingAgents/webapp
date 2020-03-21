@@ -1,13 +1,22 @@
 body {
 	@apply text-darkgray;
+	@apply font-sans text-base;
 }
 
-h1 {
-	@apply text-3xl;
+h1,
+h2,
+h3,
+h4  {
+	@apply font-serif;
+}
+
+h3 {
+	@apply text-xl;
+	@apply leading-tight;
 }
 
 .screen {
-	@apply p-8;
+	@apply p-10;
 }
 
 .control {
@@ -15,14 +24,9 @@ h1 {
 }
 
 .link {
-	@apply text-blue underline;
+	@apply text-primary font-serif text-lg underline;
 }
 
 .button {
-	@apply border-solid border border-gray-600 rounded 
-	 transition-all duration-200 p-1;
-
-	&:hover {
-		@apply bg-darkgray text-white;
-	}
+	@apply bg-primary text-white rounded-lg p-6 text-lg shadow-lg;
 }
