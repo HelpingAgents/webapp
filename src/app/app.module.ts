@@ -1,6 +1,8 @@
 import { AppBarLargeComponent } from './shared/app-bar-large/app-bar-large.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ArrowComponent } from './shared/arrow/arrow.component';
+import { BarComponent } from './shared/bar/bar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { IntroductionComponent } from './pages/introduction/introduction.component';
 import { LandingComponent } from './pages/landing/landing.component';
@@ -25,6 +27,8 @@ import { environment } from '../environments/environment';
 		OnboardingComponent,
 		AppBarLargeComponent,
 		LogoComponent,
+		BarComponent,
+		ArrowComponent,
 	],
 	imports: [
 		BrowserModule,
