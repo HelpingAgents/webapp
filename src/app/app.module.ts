@@ -6,10 +6,17 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './pages/register/register.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { VerifyAgainComponent } from './pages/verify-again/verify-again.component';
 import { environment } from '../environments/environment';
 
 @NgModule({
-	declarations: [AppComponent, LandingComponent, IntroductionComponent, RegisterComponent],
+	declarations: [
+		AppComponent,
+		LandingComponent,
+		IntroductionComponent,
+		RegisterComponent,
+		VerifyAgainComponent,
+	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,

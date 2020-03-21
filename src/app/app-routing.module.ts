@@ -4,6 +4,7 @@ import { IntroductionComponent } from './pages/introduction/introduction.compone
 import { LandingComponent } from './pages/landing/landing.component';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './pages/register/register.component';
+import { VerifyAgainComponent } from './pages/verify-again/verify-again.component';
 
 const routes: Routes = [
 	{
@@ -18,6 +19,10 @@ const routes: Routes = [
 	{
 		path: 'register',
 		component: RegisterComponent,
+	},
+	{
+		path: 'verify-again',
+		component: VerifyAgainComponent,
 	},
 ];
 

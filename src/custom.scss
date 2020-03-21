@@ -6,6 +6,10 @@ h1 {
 	@apply text-3xl;
 }
 
+.screen {
+	@apply p-8;
+}
+
 .control {
 	@apply border rounded border-gray-300 px-2 py-1;
 }
