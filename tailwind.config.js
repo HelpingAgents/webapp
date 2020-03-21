@@ -4,6 +4,7 @@ module.exports = {
 			colors: {
 				darkgray: '#1A1A1A',
 				lightgray: '#FAFAFA',
+				mediumgray: '#DDDDDD',
 
 				blue: '#20639b',
 				white: 'white',
@@ -28,12 +29,14 @@ module.exports = {
 		},
 		fontSize: {
 			xl: '2.25rem',
-			lg: '1.25rem',
+			lg: '1.5r',
+			md: '1.25rem',
 			base: '0.9375rem',
 		},
 		borderRadius: {
 			lg: '0.9375rem',
 			default: '0.5rem',
+			full: '9999px',
 		},
 		boxShadow: {
 			lg: '0px 4px 40px rgba(0, 0, 0, 0.25)',

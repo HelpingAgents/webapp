@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
 })
 export class BarComponent implements OnInit {
 	constructor(private location: Location) {}
+
+	@Input() showExit = false;
+
+	@Output() exit = new EventEmitter();
 
 	ngOnInit(): void {}
 

@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ArrowComponent } from './shared/arrow/arrow.component';
 import { BarComponent } from './shared/bar/bar.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { CloseComponent } from './shared/close/close.component';
 import { IntroductionComponent } from './pages/introduction/introduction.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { LogoComponent } from './shared/logo/logo.component';
@@ -29,6 +30,7 @@ import { environment } from '../environments/environment';
 		LogoComponent,
 		BarComponent,
 		ArrowComponent,
+		CloseComponent,
 	],
 	imports: [
 		BrowserModule,

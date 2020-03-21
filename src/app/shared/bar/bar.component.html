@@ -1,4 +1,9 @@
-<svg viewBox="0 0 411 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg
+	class="overflow-visible pb-6"
+	viewBox="0 0 411 90"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+>
 	<g filter="url(#filter0_d)">
 		<path
 			d="M303 37.5C309 50 349.5 77.5 411 77.5L411 0H357.5C336 0.333333 297 25 303 37.5Z"
@@ -116,6 +121,7 @@
 		</linearGradient>
 	</defs>
 </svg>
-<div class="fixed w-100 flex top-0 inset-x-0 p-6">
+<div class="fixed w-100 flex top-0 inset-x-0 p-6 justify-between">
 	<app-arrow (click)="back()" class="text-white cursor-pointer"></app-arrow>
+	<app-close *ngIf="showExit" (click)="exit.emit()" class="text-white"></app-close>
 </div>

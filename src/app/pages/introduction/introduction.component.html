@@ -1,1 +1,91 @@
-<app-bar></app-bar>
+<div class="flex flex-col h-full pb-8">
+	<app-bar></app-bar>
+	<ngu-carousel
+		class="w-full flex-grow"
+		#carousel
+		[inputs]="carouselConfig"
+		[dataSource]="[first, second, third]"
+	>
+		<div class="px-8 min-w-full" *nguCarouselDef="let item">
+			<ng-container *ngTemplateOutlet="item"></ng-container>
+		</div>
+	</ngu-carousel>
+	<div
+		class="flex-grow w-full flex flex-col justify-center px-8 
+        opacity-0 transition-opacity duration-100"
+		[class.opacity-100]="isLastSlide"
+		[class.pointer-events-none]="!isLastSlide"
+	>
+		<button class="button w-full" [routerLink]="'/register'">Jetzt mitmachen!</button>
+	</div>
+	<div class="w-full flex justify-between items-center mt-6 px-8">
+		<div></div>
+		<div class="flex">
+			<div
+				*ngFor="let i of carousel.pointNumbers"
+				class="h-4 w-4 mx-2 rounded-full bg-mediumgray transition-all duration-100"
+				[class.bg-secondary]="carousel.activePoint === i"
+			></div>
+		</div>
+		<app-arrow
+			[class.opacity-100]="!isLastSlide"
+			[class.pointer-events-none]="isLastSlide"
+			class="transform rotate-180 text-primary inline-block cursor-pointer
+            opacity-0 transition-opacity duration-100"
+			(click)="next()"
+		></app-arrow>
+	</div>
+</div>
+
+<ng-template #first>
+	<div class="">
+		<h3 class="mb-6">Viele Menschen haben keinen Zugang zu digitalen Hilfsangeboten</h3>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+			laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+			voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+			non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad minim veniam.
+		</p>
+	</div>
+</ng-template>
+
+<ng-template #second>
+	<div class="">
+		<h3 class="mb-6">Telefon, das kann jeder. Nur wer nimmt den Anruf entgegen?</h3>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+			laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+			voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+			non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad minim veniam.
+		</p>
+	</div>
+</ng-template>
+
+<ng-template #third>
+	<div class="">
+		<h3 class="mb-6">
+			Du bist die Schnittstelle von Hilfsbedürftigen ins Internet. Mach mit und sei ein Held!
+		</h3>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+			laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+			voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+			non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad minim veniam.
+		</p>
+	</div>
+</ng-template>

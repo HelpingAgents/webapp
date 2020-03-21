@@ -10,9 +10,18 @@ h4  {
 	@apply font-serif;
 }
 
+h2 {
+	@apply text-xl;
+	@apply leading-tight;
+}
+
 h3 {
 	@apply text-xl;
 	@apply leading-tight;
+}
+
+p {
+	@apply mb-3;
 }
 
 .screen {
@@ -24,9 +33,20 @@ h3 {
 }
 
 .link {
-	@apply text-primary font-serif text-lg underline;
+	@apply text-primary font-serif text-md underline;
+}
+
+.bg-gradient {
+	&-primary {
+		background: linear-gradient(
+			232.5deg,
+			theme('colors.primary.light') 10.77%,
+			theme('colors.primary.default') 67.38%
+		);
+	}
 }
 
 .button {
-	@apply bg-primary text-white rounded-lg p-6 text-lg shadow-lg;
+	@apply bg-primary text-white rounded-lg p-6 text-md shadow-lg;
+	@extend .bg-gradient-primary;
 }
