@@ -35,6 +35,9 @@ export class RegisterComponent implements OnInit {
 			this.form.controls.name.value,
 			this.form.controls.phone.value
 		);
+
+		this.apiService.requestLogin().subscribe();
+
 		this.router.navigate(['verify-progress']);
 	}
 }

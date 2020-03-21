@@ -1,17 +1,18 @@
 <div class="flex h-full flex-col items-center pb-8">
 	<app-bar></app-bar>
 	<div class="flex flex-grow flex-col items-center w-full px-8">
-		<h3 class="mb-12">Warte auf SMS-Code...</h3>
-		<app-verification-loader
-			(click)="status = VerificationStatus.SUCCESS"
-			[status]="status"
-			class="w-40"
-		></app-verification-loader>
+		<h3 [ngSwitch]="status" class="mb-12">
+			<span *ngSwitchCase="VerificationStatus.LOADING">Warte auf SMS-Code...</span>
+			<span *ngSwitchCase="VerificationStatus.SUCCESS">Alles klar, es kann losgehn!</span>
+			<span *ngSwitchCase="VerificationStatus.ERROR">Falscher Code...</span>
+		</h3>
+		<app-verification-loader [status]="status" class="w-40"></app-verification-loader>
 		<div novalidate class="flex justify-between w-full">
 			<input
 				*ngFor="let _ of form.controls; let i = index"
 				[formControl]="form.controls[i]"
-				class="control w-11 px-0 mt-12 text-center font-bold"
+				class="control w-11 px-0 mt-12 text-center text-lg font-bold"
+				[class.border-error]="status === VerificationStatus.ERROR"
 				type="text"
 				inputmode="numeric"
 				#currentInput
@@ -19,9 +20,17 @@
 				(focus)="inputFocused(i)"
 			/>
 		</div>
-		<span class="control-error show text-primary text-center">
-			Trage hier den Code ein, der dir per SMS geschickt wird.
-		</span>
+		<ng-container [ngSwitch]="status">
+			<span class="control-error show text-primary text-center">
+				Trage hier den Code ein, der dir per SMS geschickt wird.
+			</span>
+			<span
+				*ngSwitchCase="VerificationStatus.ERROR"
+				class="control-error show text-center text-error"
+			>
+				Der Code war leider nicht korrekt. Versuche es noch einmal.
+			</span>
+		</ng-container>
 	</div>
 	<div class="px-8">
 		<strong class="w-full block">Keine SMS bekommen?</strong>

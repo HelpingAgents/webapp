@@ -22,6 +22,7 @@ import { VerificationLoaderComponent } from './shared/verification-loader/verifi
 import { VerifyAgainComponent } from './pages/verify-again/verify-again.component';
 import { VerifyProgressComponent } from './pages/verify-progress/verify-progress.component';
 import { environment } from '../environments/environment';
+import { CheckmarkComponent } from './checkmark/checkmark.component';
 
 @NgModule({
 	declarations: [
@@ -40,6 +41,7 @@ import { environment } from '../environments/environment';
 		CarouselControlComponent,
 		CarouselComponent,
 		VerificationLoaderComponent,
+		CheckmarkComponent,
 	],
 	imports: [
 		BrowserModule,

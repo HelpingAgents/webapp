@@ -39,7 +39,7 @@ p {
 }
 
 .control {
-	@apply bg-white border border-primary rounded-md leading-loose text-lg px-6;
+	@apply bg-white border border-primary rounded-md leading-loose text-md px-6;
 
 	::placeholder  {
 		@apply text-mixedgray;

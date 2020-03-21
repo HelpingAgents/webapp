@@ -26,6 +26,7 @@ module.exports = {
 					default: '#00820D',
 					light: '#42AD4D',
 				},
+				error: '#B112A2',
 			},
 			maxHeight: {
 				0: '0',

@@ -36,27 +36,23 @@ export class VerifyProgressComponent implements OnInit {
 		this.location.back();
 	}
 
-	ngOnInit() {
-		// this.apiService.requestLogin().subscribe();
-	}
+	ngOnInit() {}
 
-	confirmPhone() {
-		this.apiService
-			.confirmPhone()
-			.pipe(
-				tap(() => (this.status = VerificationStatus.SUCCESS)),
-				delay(450)
-			)
-			.subscribe(
-				() => this.router.navigate(['onboarding']),
-				() => (this.status = VerificationStatus.ERROR)
-			);
+	login() {
+		const code = this.form.controls.map(control => control.value).join('');
+
+		this.apiService.login(code).subscribe(
+			() => (this.status = VerificationStatus.SUCCESS),
+			() => (this.status = VerificationStatus.ERROR)
+		);
 	}
 
 	focusNext(nativeElement: any) {
 		const next = nativeElement.nextElementSibling;
 
 		if (!next) {
+			nativeElement.blur();
+			this.login();
 			return;
 		}
 

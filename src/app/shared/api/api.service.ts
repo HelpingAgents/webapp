@@ -15,10 +15,6 @@ export class ApiService {
 
 	constructor(private http: HttpClient) {}
 
-	confirmPhone(): Observable<boolean> {
-		return of(true).pipe(delay(800));
-	}
-
 	cacheRegistration(name: string, phone: string) {
 		this.cachedRegistration = {
 			name,
@@ -35,8 +31,7 @@ export class ApiService {
 	login(code: string) {
 		return this.http.post(`${this.baseUrl}/auth/login/`, {
 			phone_number: this.cachedRegistration.phone,
-			first_name: this.cachedRegistration.name,
-			last_name: '',
+			name: this.cachedRegistration.name,
 			code,
 		});
 	}
