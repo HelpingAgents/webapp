@@ -49,7 +49,7 @@ p {
 		@apply text-mixedgray;
 	}
 
-	.ng-invalid {
+	&.ng-invalid {
 		&.ng-dirty,
 		&.ng-touched {
 			@apply border-secondary;
@@ -58,7 +58,12 @@ p {
 }
 
 .control-error {
-	@apply text-secondary text-sm px-3 leading-4 overflow-visible max-h-0;
+	@apply text-secondary text-sm px-3 leading-relaxed overflow-visible max-h-0 
+	opacity-0 duration-100 transition-opacity;
+
+	&.show {
+		@apply opacity-100;
+	}
 }
 
 .button {

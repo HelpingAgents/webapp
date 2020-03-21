@@ -2,7 +2,7 @@
 	<app-bar></app-bar>
 	<div class="flex-grow h-full flex flex-col px-8 pb-8">
 		<h3 class="mb-6">Mitmachen und Held werden</h3>
-		<div class="mb-12">
+		<div class="mb-10">
 			<p>
 				Helfen ist ganz einfach: Gib unten deinen Vornamen und deine Telefonnummer ein und du
 				erhältst automatisch eine SMS zur Verifikation deiner Nummer. Dann kanns auch schon
@@ -14,12 +14,27 @@
 				<strong>Corona Helping Agent</strong> für dich natürlich absolut kostenfrei.
 			</p>
 		</div>
-		<div class="flex-grow flex flex-col">
-			<input class="control w-full" placeholder="Vorname" type="text" />
-			<span class="control-error">Test</span>
-			<input class="control w-full mt-8" placeholder="Telefonnummer" type="tel" />
+		<form [formGroup]="form" class="flex-grow flex flex-col">
+			<input formControlName="name" class="control w-full" placeholder="Vorname" type="text" />
+			<span class="control-error" [class.show]="displayError('name', 'required')">
+				Brauchen wir um dich ein bisschen besser kennenzulernen.
+			</span>
+			<input
+				formControlName="phone"
+				class="control w-full mt-8"
+				placeholder="Telefonnummer"
+				type="tel"
+			/>
+			<span class="control-error" [class.show]="displayError('phone', 'required')">
+				Ohne Telefonnummer geht’s leider nicht.
+			</span>
+			<span class="control-error" [class.show]="displayError('phone', 'pattern')">
+				Das ist keine gültige Telefonnummer.
+			</span>
 			<div class="flex-grow"></div>
-			<button routerLink="/onboarding" class="button w-full mt-8">Registrieren</button>
-		</div>
+			<button type="button" routerLink="/onboarding" class="button w-full mt-8">
+				Telefonnummer verifizieren
+			</button>
+		</form>
 	</div>
 </div>

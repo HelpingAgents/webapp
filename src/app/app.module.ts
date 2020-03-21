@@ -13,6 +13,7 @@ import { LogoComponent } from './shared/logo/logo.component';
 import { NgModule } from '@angular/core';
 import { NguCarouselModule } from '@ngu/carousel';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './pages/register/register.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { VerifyAgainComponent } from './pages/verify-again/verify-again.component';
@@ -41,6 +42,7 @@ import { environment } from '../environments/environment';
 		AppRoutingModule,
 		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 		NguCarouselModule,
+		ReactiveFormsModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],
