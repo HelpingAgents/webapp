@@ -21,7 +21,10 @@
 			/>
 		</div>
 		<ng-container [ngSwitch]="status">
-			<span class="control-error show text-primary text-center">
+			<span
+				*ngSwitchCase="VerificationStatus.LOADING"
+				class="control-error show text-primary text-center"
+			>
 				Trage hier den Code ein, der dir per SMS geschickt wird.
 			</span>
 			<span
