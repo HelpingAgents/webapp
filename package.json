@@ -4,7 +4,7 @@
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve",
-		"build": "ng build",
+		"build": "ng build --prod",
 		"publish": "mv ./dist/webapp/index.html ./dist/webapp/200.html && surge --project ./dist/webapp  --domain https://shoppingline.surge.sh",
 		"release": "npm run build && npm run publish",
 		"test": "ng test",

@@ -6,17 +6,13 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [
 	{
-		path: 'landing',
+		path: '',
+		pathMatch: 'full',
 		component: LandingComponent,
 	},
 	{
 		path: 'introduction',
 		component: IntroductionComponent,
-	},
-	{
-		path: '',
-		pathMatch: 'full',
-		redirectTo: 'landing',
 	},
 ];
 
