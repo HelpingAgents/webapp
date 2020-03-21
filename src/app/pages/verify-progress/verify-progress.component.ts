@@ -21,8 +21,16 @@ export class VerifyProgressComponent implements OnInit {
 		this.location.back();
 	}
 
-	ngOnInit() {
-		this.confirmPhone();
+	async ngOnInit() {
+		const {sms} = navigator as any;
+
+		if (!sms) {
+			alert('Navigator sms api not available.'); #
+			return;
+		}
+
+		const {content} = await sms.receive();
+		alert(content);
 	}
 
 	confirmPhone() {
