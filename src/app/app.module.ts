@@ -1,3 +1,4 @@
+import { ApiService } from './shared/api/api.service';
 import { AppBarLargeComponent } from './shared/app-bar-large/app-bar-large.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -46,7 +47,7 @@ import { environment } from '../environments/environment';
 		NguCarouselModule,
 		ReactiveFormsModule,
 	],
-	providers: [],
+	providers: [ApiService],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}
