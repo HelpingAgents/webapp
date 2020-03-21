@@ -1,20 +1,12 @@
 <div class="flex flex-col h-full pb-8">
 	<app-bar></app-bar>
-	<ngu-carousel
-		class="w-full flex-grow"
-		#carousel
-		[inputs]="CAROUSEL_CONFIG"
-		[dataSource]="[first, second, third]"
-	>
-		<div class="px-8 min-w-full" *nguCarouselDef="let item">
-			<ng-container *ngTemplateOutlet="item"></ng-container>
-		</div>
-	</ngu-carousel>
+	<app-carousel #carousel [templates]="[first, second, third]"></app-carousel>
+
 	<div
 		class="flex-grow w-full flex flex-col justify-center px-8 
         opacity-0 transition-opacity duration-100"
-		[class.opacity-100]="isLastSlide"
-		[class.pointer-events-none]="!isLastSlide"
+		[class.opacity-100]="carousel.lastSlideActive"
+		[class.pointer-events-none]="!carousel.lastSlideActive"
 	>
 		<button class="button w-full" [routerLink]="'/register'">Jetzt mitmachen!</button>
 	</div>
@@ -22,7 +14,7 @@
 </div>
 
 <ng-template #first>
-	<div class="">
+	<div class="px-8">
 		<h3 class="mb-6">Viele Menschen haben keinen Zugang zu digitalen Hilfsangeboten</h3>
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
@@ -39,7 +31,7 @@
 </ng-template>
 
 <ng-template #second>
-	<div class="">
+	<div class="px-8">
 		<h3 class="mb-6">Telefon, das kann jeder. Nur wer nimmt den Anruf entgegen?</h3>
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
@@ -56,7 +48,7 @@
 </ng-template>
 
 <ng-template #third>
-	<div class="">
+	<div class="px-8">
 		<h3 class="mb-6">
 			Du bist die Schnittstelle von Hilfsbedürftigen ins Internet. Mach mit und sei ein Held!
 		</h3>

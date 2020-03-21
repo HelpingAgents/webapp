@@ -1,0 +1,5 @@
+<ngu-carousel class="w-full h-full" #carousel [inputs]="CAROUSEL_CONFIG" [dataSource]="templates">
+	<div class="min-w-full" *nguCarouselDef="let item">
+		<ng-container *ngTemplateOutlet="item"></ng-container>
+	</div>
+</ngu-carousel>

@@ -1,7 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
-import { CAROUSEL_CONFIG, isLastSlide } from 'src/app/shared/utils';
-
-import { NguCarousel } from '@ngu/carousel';
+import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 
 @Component({
 	selector: 'app-introduction',
@@ -9,17 +6,9 @@ import { NguCarousel } from '@ngu/carousel';
 	styleUrls: ['./introduction.component.scss'],
 })
 export class IntroductionComponent implements AfterViewInit {
-	@ViewChild('carousel') carousel: NguCarousel<any>;
-
-	CAROUSEL_CONFIG = CAROUSEL_CONFIG;
-
 	constructor(private cdr: ChangeDetectorRef) {}
 
 	ngAfterViewInit() {
 		this.cdr.detectChanges();
-	}
-
-	get isLastSlide() {
-		return isLastSlide(this.carousel);
 	}
 }

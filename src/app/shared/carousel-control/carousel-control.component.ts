@@ -1,14 +1,6 @@
-import {
-	AfterContentInit,
-	ChangeDetectorRef,
-	Component,
-	Input,
-	OnChanges,
-	OnInit,
-} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { NguCarousel } from '@ngu/carousel';
-import { isLastSlide } from '../utils';
+import { CarouselComponent } from '../carousel/carousel.component';
 
 @Component({
 	selector: 'app-carousel-control',
@@ -16,21 +8,5 @@ import { isLastSlide } from '../utils';
 	styleUrls: ['./carousel-control.component.scss'],
 })
 export class CarouselControlComponent {
-	@Input() carousel: NguCarousel<any>;
-
-	next() {
-		this.carousel.moveTo(this.carousel.currentSlide + 1);
-	}
-
-	previous() {
-		this.carousel.moveTo(this.carousel.currentSlide - 1);
-	}
-
-	get isLastSlide() {
-		return this.carousel && isLastSlide(this.carousel);
-	}
-
-	get isFirstSlide() {
-		return this.carousel && !this.carousel.currentSlide;
-	}
+	@Input() carousel: CarouselComponent;
 }

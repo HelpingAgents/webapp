@@ -1,23 +1,23 @@
 <div class="w-full flex justify-between items-center">
 	<app-arrow
-		[class.opacity-100]="!isFirstSlide"
-		[class.pointer-events-none]="isFirstSlide"
+		[class.opacity-100]="!carousel.firstSlideActive"
+		[class.pointer-events-none]="carousel.firstSlideActive"
 		class="text-primary inline-block cursor-pointer
-    opacity-0 transition-opacity duration-100"
-		(click)="previous()"
+    		   opacity-0 transition-opacity duration-100"
+		(click)="carousel.previous()"
 	></app-arrow>
 	<div class="flex">
 		<div
-			*ngFor="let i of carousel.pointNumbers"
+			*ngFor="let i of carousel.slideNumbers"
 			class="h-4 w-4 mx-2 rounded-full bg-mediumgray transition-all duration-100"
-			[class.bg-secondary]="carousel.activePoint === i"
+			[class.bg-secondary]="carousel.currentSlide === i"
 		></div>
 	</div>
 	<app-arrow
-		[class.opacity-100]="!isLastSlide"
-		[class.pointer-events-none]="isLastSlide"
+		[class.opacity-100]="!carousel.lastSlideActive"
+		[class.pointer-events-none]="carousel.lastSlideActive"
 		class="transform rotate-180 text-primary inline-block cursor-pointer
         opacity-0 transition-opacity duration-100"
-		(click)="next()"
+		(click)="carousel.next()"
 	></app-arrow>
 </div>
