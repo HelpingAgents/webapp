@@ -1,27 +1,113 @@
-<div class="screen flex flex-col h-full px-0">
-	<div class="overflow-x-auto flex-grow flex w-full">
-		<ngu-carousel
-			class="w-full text-white"
-			#carousel
-			[inputs]="carouselConfig"
-			[dataSource]="[first, second, third]"
-		>
-			<div class="px-8 min-w-full" *nguCarouselDef="let item">
-				<ng-container *ngTemplateOutlet="item"></ng-container>
-			</div>
-		</ngu-carousel>
-	</div>
-	<button class="button mt-4 mx-8" (click)="next()">Weiter</button>
+<div class="flex flex-col h-full pb-8">
+	<app-bar></app-bar>
+	<app-carousel
+		#carousel
+		[templates]="[greeting, smalltalk, data, agreement, completion]"
+	></app-carousel>
+	<div class="flex-grow"></div>
+	<app-carousel-control [carousel]="carousel" class="mt-6 px-8"></app-carousel-control>
 </div>
 
-<ng-template #first>
-	<div class="min-w-full h-full bg-blue">Test</div>
+<ng-template #greeting>
+	<div class="px-8">
+		<h3 class="mb-6">1. Begrüßung</h3>
+		<p>
+			Mit einer netten Begrüßung wird doch jeder gerne angesprochen. Lorem ipsum dolor sit amet,
+			consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+			aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+			ea commodo consequat.
+		</p>
+		<p class="mb-8">
+			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+			mollit anim id est laborum. ipsum dolor sit amet, consectetur adipisicing.
+		</p>
+		<em class="text-primary text-md font-serif">
+			"Schönen guten Tag, hier ist die Helfer-Vermittlung. Mein Name ist Monika, was kann ich für
+			Sie tun?"
+		</em>
+	</div>
 </ng-template>
 
-<ng-template #second>
-	<div class="min-w-full h-full bg-red-800">Test</div>
+<ng-template #smalltalk>
+	<div class="px-8">
+		<h3 class="mb-6">2. Smalltalk</h3>
+		<p>
+			Viele Menschen in Quarantäne fühlen sich einsam und reden deshalb gerne. Bleib höflich, hör
+			zu, frag ggf. mal nach und bring das Gespräch dann langsam auf die Hilfe, die der Anrufer
+			benötigt. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+		</p>
+		<p class="mb-8">
+			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+			mollit anim id est laborum. ipsum dolor sit amet, consectetur adipisicing.
+		</p>
+		<em class="text-primary text-md font-serif">
+			“Wie ist denn das Wetter bei Ihnen in XXX? ... Ach, dann will man ja eh nicht rausgehen.”
+		</em>
+	</div>
 </ng-template>
 
-<ng-template #third>
-	<div class="min-w-full h-full bg-orange-500">Test</div>
+<ng-template #data>
+	<div class="px-8">
+		<h3 class="mb-6">3. Daten aufnehmen</h3>
+		<p>
+			Leg dir vor dem Telefonat am besten ein Blatt Papier und einen Stift bereit, damit du die
+			Daten temporär festhalten kannst. Frage nach folgenden Dingen:
+		</p>
+		<ol>
+			<li>Name und Vorname</li>
+			<li>Telefonnummer</li>
+			<li>Postleitzahl / Ort</li>
+			<li>Welche Art von Hilfe wird benötigt</li>
+		</ol>
+		<p class="mb-8">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+		</p>
+		<em class="text-primary text-md font-serif">
+			“Ich muss nun kurz einige Daten von Ihnen abfragen, damit wir Ihnen bestmöglich helfen
+			können.”
+		</em>
+	</div>
+</ng-template>
+
+<ng-template #agreement>
+	<div class="px-8">
+		<h3 class="mb-6">4. Einwilligung</h3>
+		<p>
+			WICHTIG: Frag bitte unbedingt nach, ob du den Namen und die Telefonnummer an einen
+			potenziellen Helfer weitergeben darfst, damit dieser den Anrufer kontaktieren kann.
+		</p>
+		<p class="mb-8">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+			laboris. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+			incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+			exercitation ullamco laboris n
+		</p>
+		<em class="text-primary text-md font-serif">
+			“Sind Sie damit einverstanden, dass wir Ihre Telefonnummer und Namen an jemanden
+			weitergeben...?”
+		</em>
+	</div>
+</ng-template>
+
+<ng-template #completion>
+	<div class="px-8">
+		<h3 class="mb-6">5. Abschluss</h3>
+		<p>
+			Versichere dem Anrufer, dass du dich bemühst, möglichst schnell einen Helfer für ihn zu
+			finden. Weise ihn aber auch darauf hin, dass das ein bisschen dauern kann und dass du
+			zurückrufst, solltest du keinen Helfer gefunden haben.
+		</p>
+		<p class="mb-8">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+			laboris. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+			incididunt
+		</p>
+		<em class="text-primary text-md font-serif">
+			“Ich gebe alles, um schnellstmöglich jemanden zu finden, der Ihnen behilflich sein kann.”
+		</em>
+	</div>
 </ng-template>

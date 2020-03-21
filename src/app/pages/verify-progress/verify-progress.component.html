@@ -35,13 +35,18 @@
 				Der Code war leider nicht korrekt. Versuche es noch einmal.
 			</span>
 			<div class="flex-grow"></div>
-			<button *ngSwitchCase="VerificationStatus.SUCCESS" class="button w-full">
+			<button
+				routerLink="/onboarding"
+				*ngSwitchCase="VerificationStatus.SUCCESS"
+				class="button w-full"
+			>
 				Einführung starten
 			</button>
 		</ng-container>
 	</div>
 	<div class="px-8 mt-8" [ngSwitch]="status">
 		<a
+			routerLink="/"
 			class="underline text-primary font-serif text-md cursor-pointer"
 			*ngSwitchCase="VerificationStatus.SUCCESS"
 		>

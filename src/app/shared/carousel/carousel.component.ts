@@ -31,11 +31,11 @@ export class CarouselComponent implements OnInit {
 	}
 
 	public get lastSlideActive() {
-		return this.carousel && this.carousel.currentSlide > this.carousel.slideItems;
+		return this.carousel && this.carousel.activePoint === this.carousel.pointNumbers.length - 1;
 	}
 
 	public get firstSlideActive() {
-		return this.carousel && !this.carousel.currentSlide;
+		return this.carousel && !this.carousel.activePoint;
 	}
 
 	public moveTo(slide: number) {
