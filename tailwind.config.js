@@ -30,6 +30,9 @@ module.exports = {
 			maxHeight: {
 				0: '0',
 			},
+			spacing: {
+				11: '2.75rem',
+			},
 		},
 		fontFamily: {
 			serif: ['Crete Round', 'serif'],

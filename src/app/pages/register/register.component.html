@@ -32,7 +32,13 @@
 				Das ist keine gültige Telefonnummer.
 			</span>
 			<div class="flex-grow"></div>
-			<button type="button" routerLink="/verify-progress" class="button w-full mt-8">
+			<button
+				[disabled]="form.invalid"
+				(click)="verify()"
+				type="button"
+				routerLink="/verify-progress"
+				class="button w-full mt-8"
+			>
 				Telefonnummer verifizieren
 			</button>
 		</form>

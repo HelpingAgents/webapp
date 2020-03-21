@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CarouselComponent } from './shared/carousel/carousel.component';
 import { CarouselControlComponent } from './shared/carousel-control/carousel-control.component';
 import { CloseComponent } from './shared/close/close.component';
+import { HttpClientModule } from '@angular/common/http';
 import { IntroductionComponent } from './pages/introduction/introduction.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { LogoComponent } from './shared/logo/logo.component';
@@ -46,6 +47,7 @@ import { environment } from '../environments/environment';
 		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 		NguCarouselModule,
 		ReactiveFormsModule,
+		HttpClientModule,
 	],
 	providers: [ApiService],
 	bootstrap: [AppComponent],

@@ -16,7 +16,7 @@ h2 {
 }
 
 h3 {
-	@apply text-xl;
+	@apply text-lg;
 	@apply leading-tight;
 }
 
@@ -54,7 +54,7 @@ p {
 }
 
 .control-error {
-	@apply text-secondary text-sm px-3 leading-relaxed overflow-visible max-h-0 
+	@apply text-secondary text-sm px-3 leading-loose overflow-visible max-h-0 
 	opacity-0 duration-100 transition-opacity;
 
 	&.show {
