@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
 
-import { NguCarouselConfig } from '@ngu/carousel';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 	styleUrls: ['./onboarding.component.scss'],
 })
 export class OnboardingComponent {
+	@ViewChild('carousel') carousel: NguCarousel<any>;
+
 	constructor(private router: Router) {}
 
 	carouselConfig: NguCarouselConfig = {
@@ -19,6 +21,18 @@ export class OnboardingComponent {
 	};
 
 	next() {
-		this.router.navigate(['onboarding'], { fragment: 'step1' });
+		if (this.isLastSlide) {
+			this.router.navigate(['/']);
+		} else {
+			this.carousel.moveTo(this.carousel.currentSlide + 1);
+		}
+	}
+
+	get isLastSlide() {
+		if (!this.carousel) {
+			return undefined;
+		}
+
+		return this.carousel.currentSlide > this.carousel.slideItems;
 	}
 }
