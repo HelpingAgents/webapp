@@ -22,14 +22,14 @@ export class VerifyProgressComponent implements OnInit {
 	}
 
 	async ngOnInit() {
-		const {sms} = navigator as any;
+		const { sms } = navigator as any;
 
 		if (!sms) {
-			alert('Navigator sms api not available.'); #
+			alert('Navigator sms api not available.');
 			return;
 		}
 
-		const {content} = await sms.receive();
+		const { content } = await sms.receive();
 		alert(content);
 	}
 
