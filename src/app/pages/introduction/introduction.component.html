@@ -3,7 +3,7 @@
 	<ngu-carousel
 		class="w-full flex-grow"
 		#carousel
-		[inputs]="carouselConfig"
+		[inputs]="CAROUSEL_CONFIG"
 		[dataSource]="[first, second, third]"
 	>
 		<div class="px-8 min-w-full" *nguCarouselDef="let item">
@@ -18,29 +18,7 @@
 	>
 		<button class="button w-full" [routerLink]="'/register'">Jetzt mitmachen!</button>
 	</div>
-	<div class="w-full flex justify-between items-center mt-6 px-8">
-		<app-arrow
-			[class.opacity-100]="!isFirstSlide"
-			[class.pointer-events-none]="isFirstSlide"
-			class="text-primary inline-block cursor-pointer
-		opacity-0 transition-opacity duration-100"
-			(click)="previous()"
-		></app-arrow>
-		<div class="flex">
-			<div
-				*ngFor="let i of carousel.pointNumbers"
-				class="h-4 w-4 mx-2 rounded-full bg-mediumgray transition-all duration-100"
-				[class.bg-secondary]="carousel.activePoint === i"
-			></div>
-		</div>
-		<app-arrow
-			[class.opacity-100]="!isLastSlide"
-			[class.pointer-events-none]="isLastSlide"
-			class="transform rotate-180 text-primary inline-block cursor-pointer
-            opacity-0 transition-opacity duration-100"
-			(click)="next()"
-		></app-arrow>
-	</div>
+	<app-carousel-control [carousel]="carousel" class="mt-6 px-8"></app-carousel-control>
 </div>
 
 <ng-template #first>

@@ -1,42 +1,25 @@
-import { AfterContentInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
+import { AfterViewInit, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { CAROUSEL_CONFIG, isLastSlide } from 'src/app/shared/utils';
 
-import { isLastSlide } from 'src/app/shared/utils';
+import { NguCarousel } from '@ngu/carousel';
 
 @Component({
 	selector: 'app-introduction',
 	templateUrl: './introduction.component.html',
 	styleUrls: ['./introduction.component.scss'],
 })
-export class IntroductionComponent implements AfterContentInit {
+export class IntroductionComponent implements AfterViewInit {
 	@ViewChild('carousel') carousel: NguCarousel<any>;
 
-	carouselConfig: NguCarouselConfig = {
-		grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
-		loop: false,
-		touch: true,
-		velocity: 0.2,
-	};
+	CAROUSEL_CONFIG = CAROUSEL_CONFIG;
 
 	constructor(private cdr: ChangeDetectorRef) {}
 
-	ngAfterContentInit(): void {
+	ngAfterViewInit() {
 		this.cdr.detectChanges();
 	}
 
-	next() {
-		this.carousel.moveTo(this.carousel.currentSlide + 1);
-	}
-
-	previous() {
-		this.carousel.moveTo(this.carousel.currentSlide - 1);
-	}
-
 	get isLastSlide() {
-		return this.carousel && isLastSlide(this.carousel);
-	}
-
-	get isFirstSlide() {
-		return this.carousel && !this.carousel.currentSlide;
+		return isLastSlide(this.carousel);
 	}
 }

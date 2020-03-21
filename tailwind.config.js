@@ -5,6 +5,7 @@ module.exports = {
 				darkgray: '#1A1A1A',
 				lightgray: '#FAFAFA',
 				mediumgray: '#DDDDDD',
+				mixedgray: '#AAAAAA',
 
 				blue: '#20639b',
 				white: 'white',
@@ -22,6 +23,9 @@ module.exports = {
 					light: '#FDB343',
 				},
 			},
+			maxHeight: {
+				0: '0',
+			},
 		},
 		fontFamily: {
 			serif: ['Crete Round', 'serif'],
@@ -29,12 +33,14 @@ module.exports = {
 		},
 		fontSize: {
 			xl: '2.25rem',
-			lg: '1.5r',
+			lg: '1.5rem',
 			md: '1.25rem',
+			sm: '0.6875rem',
 			base: '0.9375rem',
 		},
 		borderRadius: {
 			lg: '0.9375rem',
+			md: '0.625rem',
 			default: '0.5rem',
 			full: '9999px',
 		},

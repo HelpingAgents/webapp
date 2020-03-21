@@ -28,10 +28,6 @@ p {
 	@apply p-10;
 }
 
-.control {
-	@apply border rounded border-gray-300 px-2 py-1;
-}
-
 .link {
 	@apply text-primary font-serif text-md underline;
 }
@@ -44,6 +40,25 @@ p {
 			theme('colors.primary.default') 67.38%
 		);
 	}
+}
+
+.control {
+	@apply bg-white border border-primary rounded-md leading-loose text-lg px-6;
+
+	::placeholder  {
+		@apply text-mixedgray;
+	}
+
+	.ng-invalid {
+		&.ng-dirty,
+		&.ng-touched {
+			@apply border-secondary;
+		}
+	}
+}
+
+.control-error {
+	@apply text-secondary text-sm px-3 leading-4 overflow-visible max-h-0;
 }
 
 .button {
