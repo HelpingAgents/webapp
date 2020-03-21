@@ -1,8 +1,10 @@
+import { AppBarLargeComponent } from './shared/app-bar-large/app-bar-large.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { IntroductionComponent } from './pages/introduction/introduction.component';
 import { LandingComponent } from './pages/landing/landing.component';
+import { LogoComponent } from './shared/logo/logo.component';
 import { NgModule } from '@angular/core';
 import { NguCarouselModule } from '@ngu/carousel';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
@@ -21,6 +23,8 @@ import { environment } from '../environments/environment';
 		VerifyAgainComponent,
 		VerifyProgressComponent,
 		OnboardingComponent,
+		AppBarLargeComponent,
+		LogoComponent,
 	],
 	imports: [
 		BrowserModule,
