@@ -3,7 +3,8 @@
 	<div class="flex flex-col items-center w-100">
 		<h3 class="mb-12">Warte auf SMS...</h3>
 		<app-verification-loader
-			[status]="VerificationStatus.SUCCESS"
+			(click)="status = VerificationStatus.SUCCESS"
+			[status]="status"
 			class="w-40"
 		></app-verification-loader>
 	</div>

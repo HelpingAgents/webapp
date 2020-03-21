@@ -22,6 +22,10 @@ module.exports = {
 					default: '#EF9A1B',
 					light: '#FDB343',
 				},
+				success: {
+					default: '#00820D',
+					light: '#42AD4D',
+				},
 			},
 			maxHeight: {
 				0: '0',

@@ -10,6 +10,7 @@ import { VerificationStatus } from 'src/app/shared/verification-loader/verificat
 })
 export class VerifyProgressComponent implements OnInit {
 	VerificationStatus = VerificationStatus;
+	status = VerificationStatus.LOADING;
 
 	constructor(private location: Location) {}
 
