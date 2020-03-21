@@ -16,6 +16,7 @@ import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './pages/register/register.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { VerificationLoaderComponent } from './shared/verification-loader/verification-loader.component';
 import { VerifyAgainComponent } from './pages/verify-again/verify-again.component';
 import { VerifyProgressComponent } from './pages/verify-progress/verify-progress.component';
 import { environment } from '../environments/environment';
@@ -36,6 +37,7 @@ import { environment } from '../environments/environment';
 		CloseComponent,
 		CarouselControlComponent,
 		CarouselComponent,
+		VerificationLoaderComponent,
 	],
 	imports: [
 		BrowserModule,

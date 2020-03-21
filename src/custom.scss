@@ -28,10 +28,6 @@ p {
 	@apply p-10;
 }
 
-.link {
-	@apply text-primary font-serif text-md underline;
-}
-
 .bg-gradient {
 	&-primary {
 		background: linear-gradient(
