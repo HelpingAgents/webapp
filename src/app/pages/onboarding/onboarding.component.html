@@ -1,27 +1,27 @@
-<div class="screen flex flex-col h-screen">
-	<div class="overflow-x-auto flex-grow flex w-full carousel">
+<div class="screen flex flex-col h-screen px-0">
+	<div class="overflow-x-auto flex-grow flex w-full">
 		<ngu-carousel
-			class="w-full h-100 text-white"
+			class="w-full text-white"
 			#carousel
 			[inputs]="carouselConfig"
 			[dataSource]="[first, second, third]"
 		>
-			<ng-container *nguCarouselDef="let item">
+			<div class="px-8 min-w-full" *nguCarouselDef="let item">
 				<ng-container *ngTemplateOutlet="item"></ng-container>
-			</ng-container>
+			</div>
 		</ngu-carousel>
 	</div>
-	<button class="button mt-4" (click)="next()">Weiter</button>
+	<button class="button mt-4 mx-8" (click)="next()">Weiter</button>
 </div>
 
 <ng-template #first>
-	<div class="min-w-full h-100 bg-blue">Test</div>
+	<div class="min-w-full h-full bg-blue">Test</div>
 </ng-template>
 
 <ng-template #second>
-	<div class="min-w-full h-100 bg-red-800">Test</div>
+	<div class="min-w-full h-full bg-red-800">Test</div>
 </ng-template>
 
 <ng-template #third>
-	<div class="min-w-full h-100 bg-red">Test</div>
+	<div class="min-w-full h-full bg-orange-500">Test</div>
 </ng-template>
