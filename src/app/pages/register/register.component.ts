@@ -25,6 +25,19 @@ export class RegisterComponent implements OnInit {
 
 	ngOnInit(): void {}
 
+	loadCachedRegistration() {
+		const registration = this.apiService.getCachedRegistration();
+
+		if (!registration) {
+			return;
+		}
+
+		this.form.setValue({
+			name: registration.name,
+			phone: registration.phone,
+		});
+	}
+
 	displayError(controlName: string, error: string) {
 		const control = this.form.controls[controlName];
 		return (control.dirty || control.touched) && this.form.controls[controlName].hasError(error);

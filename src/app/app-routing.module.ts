@@ -6,8 +6,8 @@ import { MainComponent } from './pages/main/main.component';
 import { NgModule } from '@angular/core';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { VerifyAgainComponent } from './pages/verify-again/verify-again.component';
 import { VerifyProgressComponent } from './pages/verify-progress/verify-progress.component';
+import { VerifyProgressGuard } from './shared/verify-progress/verify-progress-guard.guard';
 
 const routes: Routes = [
 	{
@@ -24,12 +24,9 @@ const routes: Routes = [
 		component: RegisterComponent,
 	},
 	{
-		path: 'verify-again',
-		component: VerifyAgainComponent,
-	},
-	{
 		path: 'verify-progress',
 		component: VerifyProgressComponent,
+		canActivate: [VerifyProgressGuard],
 	},
 	{
 		path: 'onboarding',

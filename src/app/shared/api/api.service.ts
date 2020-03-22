@@ -87,4 +87,8 @@ export class ApiService {
 			.get<Profile>(`${this.baseUrl}/auth/profile/info/`, options)
 			.pipe(tap(responseProfile => this.profile$.next(responseProfile)));
 	}
+
+	getCachedRegistration() {
+		return this.cachedRegistration;
+	}
 }
