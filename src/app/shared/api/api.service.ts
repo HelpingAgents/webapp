@@ -11,6 +11,10 @@ export enum OnlineStatus {
 	OfflineLoading = 'OfflineLoading',
 }
 
+const options = {
+	withCredentials: true,
+};
+
 @Injectable()
 export class ApiService {
 	private readonly baseUrl = 'https://helpingagents.herokuapp.com/api';
@@ -37,18 +41,20 @@ export class ApiService {
 			{
 				phone_number: this.cachedRegistration.phone,
 			},
-			{
-				withCredentials: true,
-			}
+			options
 		);
 	}
 
 	login(code: string) {
-		return this.http.post(`${this.baseUrl}/auth/login/`, {
-			phone_number: this.cachedRegistration.phone,
-			name: this.cachedRegistration.name,
-			code,
-		});
+		return this.http.post(
+			`${this.baseUrl}/auth/login/`,
+			{
+				phone_number: this.cachedRegistration.phone,
+				name: this.cachedRegistration.name,
+				code,
+			},
+			options
+		);
 	}
 
 	goOnline() {
@@ -70,8 +76,6 @@ export class ApiService {
 			accepting_calls?: boolean;
 		} = {}
 	) {
-		return this.http.patch(`${this.baseUrl}/auth/profile/update/`, profile, {
-			withCredentials: true,
-		});
+		return this.http.patch(`${this.baseUrl}/auth/profile/update/`, profile, options);
 	}
 }
