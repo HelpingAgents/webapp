@@ -1,0 +1,32 @@
+* {
+	transition: all 0.2s;
+}
+
+.layers {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+
+	justify-items: stretch;
+	align-items: stretch;
+
+	> * {
+		grid-row: 1;
+		grid-column: 1;
+	}
+}
+
+.draggable {
+	position: absolute;
+
+	top: 0;
+	left: 0;
+
+	height: 100%;
+
+	.online {
+		margin-left: 50%;
+
+		transform: translateX(50%);
+	}
+}

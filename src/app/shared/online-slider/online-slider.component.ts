@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'app-online-slider',
@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./online-slider.component.scss'],
 })
 export class OnlineSliderComponent implements OnInit {
+	@Input() online: boolean;
+
 	constructor() {}
 
 	ngOnInit(): void {}
+
+	ngOnChanges() {
+		console.log(this.online);
+	}
 }

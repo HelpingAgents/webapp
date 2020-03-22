@@ -25,5 +25,9 @@
 			*ngFor="let _ of [].constructor(4)"
 		></div>
 	</div>
-	<button class="button" (click)="toggleOnline()"></button>
+	<app-online-slider
+		(click)="toggleOnline()"
+		[online]="clientOnline$ | async"
+		class="w-56 block"
+	></app-online-slider>
 </div>

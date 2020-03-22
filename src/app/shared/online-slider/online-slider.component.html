@@ -1,1 +1,143 @@
-<p>online-slider works!</p>
+<div class="h-full relative">
+	<div class="layers max-h-full">
+		<svg
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 220 92"
+			[class.opacity-0]="!online"
+		>
+			<g filter="url(#slider-on_svg__filter0_i)">
+				<rect width="220" height="92" rx="46" fill="url(#slider-on_svg__paint0_linear)" />
+			</g>
+			<defs>
+				<linearGradient
+					id="slider-on_svg__paint0_linear"
+					x1="41"
+					y1="102.5"
+					x2="167.715"
+					y2="96.993"
+					gradientUnits="userSpaceOnUse"
+				>
+					<stop stop-color="#46AAC0" />
+					<stop offset="1" stop-color="#0896B6" />
+				</linearGradient>
+				<filter
+					id="slider-on_svg__filter0_i"
+					x="0"
+					y="0"
+					width="220"
+					height="96"
+					filterUnits="userSpaceOnUse"
+					color-interpolation-filters="sRGB"
+				>
+					<feFlood flood-opacity="0" result="BackgroundImageFix" />
+					<feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+					<feColorMatrix
+						in="SourceAlpha"
+						values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+						result="hardAlpha"
+					/>
+					<feOffset dy="4" />
+					<feGaussianBlur stdDeviation="10" />
+					<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+					<feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0" />
+					<feBlend in2="shape" result="effect1_innerShadow" />
+				</filter>
+			</defs>
+		</svg>
+		<svg
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 220 92"
+			[class.opacity-0]="online"
+		>
+			<g filter="url(#slider-off_svg__filter0_i)">
+				<rect width="220" height="92" rx="46" fill="url(#slider-off_svg__paint0_linear)" />
+			</g>
+			<defs>
+				<linearGradient
+					id="slider-off_svg__paint0_linear"
+					x1="110"
+					y1="0"
+					x2="110"
+					y2="92"
+					gradientUnits="userSpaceOnUse"
+				>
+					<stop stop-color="#EEE" />
+					<stop offset="1" stop-color="#FAFAFA" />
+				</linearGradient>
+				<filter
+					id="slider-off_svg__filter0_i"
+					x="0"
+					y="0"
+					width="220"
+					height="96"
+					filterUnits="userSpaceOnUse"
+					color-interpolation-filters="sRGB"
+				>
+					<feFlood flood-opacity="0" result="BackgroundImageFix" />
+					<feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+					<feColorMatrix
+						in="SourceAlpha"
+						values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+						result="hardAlpha"
+					/>
+					<feOffset dy="4" />
+					<feGaussianBlur stdDeviation="10" />
+					<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+					<feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0" />
+					<feBlend in2="shape" result="effect1_innerShadow" />
+				</filter>
+			</defs>
+		</svg>
+	</div>
+
+	<div class="absolute draggable block h-full p-3">
+		<div class="h-full">
+			<svg
+				class="h-full"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 72 72"
+				[class.online]="online"
+			>
+				<circle cx="36" cy="36" r="36" fill="url(#grab_svg__grab_svg__paint0_linear)" />
+				<defs>
+					<linearGradient
+						id="grab_svg__grab_svg__paint0_linear"
+						x1="70.328"
+						y1="6.324"
+						x2="11.265"
+						y2="15.489"
+						gradientUnits="userSpaceOnUse"
+					>
+						<stop stop-color="#46AAC0" />
+						<stop offset="1" stop-color="#0896B6" />
+					</linearGradient>
+				</defs>
+			</svg>
+			<svg
+				class="h-full"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 72 72"
+				[class.online]="online"
+			>
+				<circle cx="36" cy="36" r="36" fill="url(#grab_svg__grab_svg__paint0_linear)" />
+				<defs>
+					<linearGradient
+						id="grab_svg__grab_svg__paint0_linear"
+						x1="70.328"
+						y1="6.324"
+						x2="11.265"
+						y2="15.489"
+						gradientUnits="userSpaceOnUse"
+					>
+						<stop stop-color="#46AAC0" />
+						<stop offset="1" stop-color="#0896B6" />
+					</linearGradient>
+				</defs>
+			</svg>
+		</div>
+	</div>
+</div>

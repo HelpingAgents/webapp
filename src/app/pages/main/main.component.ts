@@ -69,6 +69,21 @@ export class MainComponent implements OnInit {
 		})
 	);
 
+	clientOnline$ = this.onlineStatus$.pipe(
+		map(status => {
+			switch (status) {
+				case OnlineStatus.OnlineSuccess:
+				case OnlineStatus.OnlineLoading: {
+					return true;
+				}
+				case OnlineStatus.OfflineSuccess:
+				case OnlineStatus.OfflineLoading: {
+					return false;
+				}
+			}
+		})
+	);
+
 	pointClasses$ = this.onlineStatus$.pipe(
 		map(status => {
 			switch (status) {
@@ -92,7 +107,6 @@ export class MainComponent implements OnInit {
 
 	async toggleOnline() {
 		const onlineStatus = await this.onlineStatus$.pipe(first()).toPromise();
-		console.log(onlineStatus);
 
 		if (onlineStatus === OnlineStatus.OnlineSuccess) {
 			this.loading$.next(true);
