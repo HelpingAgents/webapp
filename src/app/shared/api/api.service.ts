@@ -1,14 +1,19 @@
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import { delay, tap } from 'rxjs/operators';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay } from 'rxjs/operators';
 
 export enum OnlineStatus {
 	OnlineSuccess = 'OnlineSuccess',
 	OnlineLoading = 'OnlineLoading',
 	OfflineSuccess = 'OfflineSuccess',
 	OfflineLoading = 'OfflineLoading',
+}
+
+export interface Profile {
+	name: string;
+	accepting_calls: boolean;
 }
 
 const options = {
@@ -24,7 +29,7 @@ export class ApiService {
 		phone: string;
 	};
 
-	public onlineStatus$ = new BehaviorSubject(OnlineStatus.OfflineSuccess);
+	public profile$ = new BehaviorSubject<Profile>(undefined);
 
 	constructor(private http: HttpClient) {}
 
@@ -58,17 +63,11 @@ export class ApiService {
 	}
 
 	goOnline() {
-		this.onlineStatus$.next(OnlineStatus.OnlineLoading);
-		this.patchProfile({ accepting_calls: true }).subscribe(() => {
-			this.onlineStatus$.next(OnlineStatus.OnlineSuccess);
-		});
+		return this.patchProfile({ accepting_calls: true });
 	}
 
 	goOffline() {
-		this.onlineStatus$.next(OnlineStatus.OfflineLoading);
-		this.patchProfile({ accepting_calls: false }).subscribe(() => {
-			this.onlineStatus$.next(OnlineStatus.OnlineSuccess);
-		});
+		return this.patchProfile({ accepting_calls: false });
 	}
 
 	patchProfile(
@@ -76,6 +75,14 @@ export class ApiService {
 			accepting_calls?: boolean;
 		} = {}
 	) {
-		return this.http.patch(`${this.baseUrl}/auth/profile/update/`, profile, options);
+		return this.http
+			.patch<Profile>(`${this.baseUrl}/auth/profile/update/`, profile, options)
+			.pipe(tap(responseProfile => this.profile$.next(responseProfile)));
+	}
+
+	getProfile() {
+		return this.http
+			.get<Profile>(`${this.baseUrl}/auth/profile/info/`, options)
+			.pipe(tap(responseProfile => this.profile$.next(responseProfile)));
 	}
 }

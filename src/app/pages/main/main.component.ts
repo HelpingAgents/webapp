@@ -1,7 +1,7 @@
 import { ApiService, OnlineStatus } from 'src/app/shared/api/api.service';
+import { BehaviorSubject, ReplaySubject, combineLatest } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-
-import { map } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-main',
@@ -10,17 +10,37 @@ import { map } from 'rxjs/operators';
 })
 export class MainComponent implements OnInit {
 	OnlineStatus = OnlineStatus;
-	onlineStatus$ = this.apiService.onlineStatus$;
+
+	loading$ = new ReplaySubject<boolean>(1);
+	profile$ = this.apiService.profile$;
+
+	onlineStatus$ = combineLatest([this.profile$, this.loading$]).pipe(
+		map(([{ accepting_calls }, loading]) => {
+			if (accepting_calls && loading) {
+				return OnlineStatus.OfflineLoading;
+			}
+
+			if (!accepting_calls && loading) {
+				return OnlineStatus.OnlineLoading;
+			}
+
+			if (accepting_calls) {
+				return OnlineStatus.OnlineSuccess;
+			}
+
+			return OnlineStatus.OfflineSuccess;
+		})
+	);
 
 	statusBoxClasses$ = this.onlineStatus$.pipe(
 		map(status => {
 			switch (status) {
 				case OnlineStatus.OnlineSuccess:
-				case OnlineStatus.OnlineLoading: {
+				case OnlineStatus.OfflineLoading: {
 					return ['text-white', 'bg-gradient-success'];
 				}
-				case OnlineStatus.OfflineLoading:
-				case OnlineStatus.OfflineSuccess: {
+				case OnlineStatus.OfflineSuccess:
+				case OnlineStatus.OnlineLoading: {
 					return ['text-somegray', 'bg-gradient-gray'];
 				}
 			}
@@ -44,15 +64,21 @@ export class MainComponent implements OnInit {
 
 	constructor(private apiService: ApiService) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.apiService.getProfile();
+	}
 
-	toggleOnline() {
-		if (this.onlineStatus$.value === OnlineStatus.OnlineSuccess) {
-			this.apiService.goOffline();
+	async toggleOnline() {
+		const onlineStatus = await this.onlineStatus$.pipe(first()).toPromise();
+
+		if (onlineStatus === OnlineStatus.OnlineSuccess) {
+			this.loading$.next(true);
+			this.apiService.goOffline().subscribe(() => this.loading$.next(false));
 		}
 
-		if (this.onlineStatus$.value === OnlineStatus.OfflineSuccess) {
-			this.apiService.goOnline();
+		if (onlineStatus === OnlineStatus.OfflineSuccess) {
+			this.loading$.next(true);
+			this.apiService.goOnline().subscribe(() => this.loading$.next(false));
 		}
 	}
 }

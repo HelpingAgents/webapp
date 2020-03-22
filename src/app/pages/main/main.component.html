@@ -1,6 +1,6 @@
 <div class="flex flex-col h-full p-8" *ngIf="onlineStatus$ | async as onlineStatus">
 	<app-bar class="-mx-8 -mt-8"></app-bar>
-	<h3>Hallo Name</h3>
+	<h3>Hallo {{ (profile$ | async).name }}</h3>
 	<div
 		class="shadow-inner p-4 w-100 mt-10 mb-5  
 		flex flex-col align-middle border-0 rounded-md text-center"
@@ -13,19 +13,19 @@
 				Anrufe können an dich durchgestellt werden.
 			</span>
 		</ng-template>
-		<ng-template [ngSwitchCase]="OnlineStatus.OnlineLoading">
+		<ng-template [ngSwitchCase]="OnlineStatus.OfflineLoading">
 			<h3>Du bist Online</h3>
 			<span class="text-13">
 				Anrufe können an dich durchgestellt werden.
 			</span>
 		</ng-template>
-		<ng-template [ngSwitchCase]="OnlineStatus.OfflineLoading">
+		<ng-template [ngSwitchCase]="OnlineStatus.OfflineSuccess">
 			<h3>Du bist Offline</h3>
 			<span class="text-13">
 				Es werden keine Anrufe an dich durchgestellt.
 			</span>
 		</ng-template>
-		<ng-template [ngSwitchCase]="OnlineStatus.OfflineSuccess">
+		<ng-template [ngSwitchCase]="OnlineStatus.OnlineLoading">
 			<h3>Du bist Offline</h3>
 			<span class="text-13">
 				Es werden keine Anrufe an dich durchgestellt.
