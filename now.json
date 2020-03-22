@@ -1,0 +1,8 @@
+{
+    "routes": [
+        {
+            "source": "/api/(.*)",
+            "destination": "https://helpingagents.herokuapp.com/$1"
+        }
+    ]
+}
