@@ -17,9 +17,9 @@ export interface Profile {
 }
 
 export enum LoginStatus {
-	Success,
-	NotTried,
-	Failure,
+	Success = 'Success',
+	NotTried = 'NotTried',
+	Failure = 'Failure',
 }
 
 const options = {
@@ -41,6 +41,7 @@ export class ApiService {
 
 	public loginStatus = combineLatest([this.profile$, this.triedLogin$]).pipe(
 		map(([profile, tried]) => {
+			console.log(profile);
 			if (profile) {
 				return LoginStatus.Success;
 			}

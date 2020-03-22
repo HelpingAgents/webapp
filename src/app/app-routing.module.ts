@@ -5,6 +5,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { LoginGuard } from './shared/login/login.guard';
 import { MainComponent } from './pages/main/main.component';
 import { NgModule } from '@angular/core';
+import { NotLoggedInGuard } from './shared/not-logged-in/not-logged-in.guard';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { VerifyProgressComponent } from './pages/verify-progress/verify-progress.component';
@@ -15,19 +16,22 @@ const routes: Routes = [
 		path: '',
 		pathMatch: 'full',
 		component: LandingComponent,
+		canActivate: [NotLoggedInGuard],
 	},
 	{
 		path: 'introduction',
 		component: IntroductionComponent,
+		canActivate: [NotLoggedInGuard],
 	},
 	{
 		path: 'register',
 		component: RegisterComponent,
+		canActivate: [NotLoggedInGuard],
 	},
 	{
 		path: 'verify-progress',
 		component: VerifyProgressComponent,
-		canActivate: [VerifyProgressGuard],
+		canActivate: [NotLoggedInGuard, VerifyProgressGuard],
 	},
 	{
 		path: 'onboarding',
@@ -38,6 +42,10 @@ const routes: Routes = [
 		path: 'main',
 		component: MainComponent,
 		canActivate: [LoginGuard],
+	},
+	{
+		path: '**',
+		redirectTo: '/',
 	},
 ];
 

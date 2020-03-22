@@ -14,30 +14,31 @@ import { first } from 'rxjs/operators';
 @Injectable({
 	providedIn: 'root',
 })
-export class LoginGuard implements CanActivate {
+export class NotLoggedInGuard implements CanActivate {
 	constructor(private apiService: ApiService, private router: Router) {}
 
 	async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
 		const loginStatus = await this.apiService.loginStatus.pipe(first()).toPromise();
 
+		console.log(loginStatus);
+
 		switch (loginStatus) {
 			case LoginStatus.Success: {
-				return true;
-				break;
+				this.router.navigate(['/main']);
+				return false;
 			}
 			case LoginStatus.Failure: {
-				this.router.navigate(['/']);
-				return false;
+				return true;
 			}
 			case LoginStatus.NotTried: {
-				const success = await !!this.apiService.getProfile().toPromise();
+				const success = await this.apiService.getProfile().toPromise();
 
 				if (success) {
-					return true;
+					this.router.navigate(['/main']);
+					return false;
 				}
 
-				this.router.navigate(['/']);
-				return false;
+				return true;
 			}
 		}
 	}
