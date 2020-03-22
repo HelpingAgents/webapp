@@ -9,6 +9,18 @@ if (environment.production) {
 	enableProdMode();
 }
 
-platformBrowserDynamic()
-	.bootstrapModule(AppModule)
-	.catch(err => console.error(err));
+function isRunningStandalone() {
+	return window.matchMedia('(display-mode: standalone)').matches;
+}
+
+function bootstrapApp() {
+	platformBrowserDynamic()
+		.bootstrapModule(AppModule)
+		.catch(err => console.error(err));
+}
+
+if (isRunningStandalone()) {
+	setTimeout(() => bootstrapApp(), 1750);
+} else {
+	bootstrapApp();
+}
