@@ -11,7 +11,7 @@ import { first, map } from 'rxjs/operators';
 export class MainComponent implements OnInit {
 	OnlineStatus = OnlineStatus;
 
-	loading$ = new ReplaySubject<boolean>(1);
+	loading$ = new BehaviorSubject(true);
 	profile$ = this.apiService.profile$;
 
 	onlineStatus$ = combineLatest([this.profile$, this.loading$]).pipe(
