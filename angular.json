@@ -23,7 +23,7 @@
 						"polyfills": "src/polyfills.ts",
 						"tsConfig": "tsconfig.app.json",
 						"aot": true,
-						"assets": ["src/favicon.ico", "src/assets", "src/manifest.webmanifest"],
+						"assets": ["src/favicon.ico", "src/assets", "src/manifest.webmanifest", "src/robots.txt"],
 						"styles": ["src/styles.scss"],
 						"scripts": [],
 						"customWebpackConfig": {
