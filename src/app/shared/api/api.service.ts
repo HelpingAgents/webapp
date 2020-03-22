@@ -31,7 +31,9 @@ export class ApiService {
 
 	public profile$ = new BehaviorSubject<Profile>(undefined);
 
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient) {
+		this.getProfile().subscribe();
+	}
 
 	cacheRegistration(name: string, phone: string) {
 		this.cachedRegistration = {
