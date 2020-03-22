@@ -41,7 +41,6 @@ export class ApiService {
 
 	public loginStatus = combineLatest([this.profile$, this.triedLogin$]).pipe(
 		map(([profile, tried]) => {
-			console.log(profile);
 			if (profile) {
 				return LoginStatus.Success;
 			}
@@ -106,6 +105,8 @@ export class ApiService {
 	}
 
 	getProfile() {
+		this.triedLogin$.next(false);
+
 		return this.http.get<Profile>(`${this.baseUrl}/auth/profile/info/`, options).pipe(
 			tap(responseProfile => this.profile$.next(responseProfile)),
 			tap(() => this.triedLogin$.next(true)),

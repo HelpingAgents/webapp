@@ -20,8 +20,6 @@ export class NotLoggedInGuard implements CanActivate {
 	async canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
 		const loginStatus = await this.apiService.loginStatus.pipe(first()).toPromise();
 
-		console.log(loginStatus);
-
 		switch (loginStatus) {
 			case LoginStatus.Success: {
 				this.router.navigate(['/main']);

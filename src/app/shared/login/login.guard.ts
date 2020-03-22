@@ -23,20 +23,20 @@ export class LoginGuard implements CanActivate {
 		switch (loginStatus) {
 			case LoginStatus.Success: {
 				return true;
-				break;
 			}
 			case LoginStatus.Failure: {
 				this.router.navigate(['/']);
 				return false;
 			}
 			case LoginStatus.NotTried: {
-				const success = await !!this.apiService.getProfile().toPromise();
+				const success = await this.apiService.getProfile().toPromise();
 
 				if (success) {
 					return true;
 				}
 
 				this.router.navigate(['/']);
+
 				return false;
 			}
 		}
