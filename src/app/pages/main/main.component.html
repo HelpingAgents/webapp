@@ -30,8 +30,25 @@
 		[online]="clientOnline$ | async"
 		class="px-14 block"
 	></app-online-slider>
-	<span class="text-primary text-center text-sm mt-5">
-		Ziehe den grauen Schalter nach links, um offline zu gehen.
+	<span
+		class="control-error text-primary text-center text-sm mt-5"
+		[class.show]="clientOnline$ | async"
+	>
+		Tippe auf den Schalter, um offline zu gehen
 	</span>
-	<div class="flex-grow-1"></div>
+	<span
+		class="control-error text-primary text-center text-sm mt-5"
+		[class.show]="!(clientOnline$ | async)"
+	>
+		Tippe auf den Schalter, um online zu gehen
+	</span>
+	<div class="flex-grow"></div>
+	<a
+		class="button block text-center"
+		href="http://78.47.139.55/"
+		target="_blank"
+		rel="noopener noreferrer"
+	>
+		Jetzt Hilfegesuch eintragen
+	</a>
 </div>
