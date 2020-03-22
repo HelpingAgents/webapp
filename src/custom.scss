@@ -84,5 +84,4 @@ button,
 .button {
 	@apply bg-primary text-white rounded-lg p-6 text-md shadow-lg;
 	@extend .bg-gradient-primary;
-	line-height: 0;
 }
