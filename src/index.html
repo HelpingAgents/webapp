@@ -23,6 +23,20 @@
 			.custom-m-0 {
 				margin: 0;
 			}
+
+			@media only screen and (min-width: 768px) {
+				html {
+					background: #333333;
+				}
+
+				#body {
+					max-width: 450px;
+					max-height: 1920px;
+					transform: scale(80%);
+					margin: auto auto;
+					overflow: hidden;
+				}
+			}
 		</style>
 
 		<meta charset="utf-8" />
@@ -39,7 +53,7 @@
 			content="Werde ein #HeldAmOhr und unterstütze Menschen aus Deiner Region, indem Du für Sie am Telefon einen passenden Helfer findest und Sie zusammenbringst."
 		/>
 	</head>
-	<body class="h-full bg-lightgray custom-m-0">
+	<body id="body" class="h-full bg-lightgray custom-m-0">
 		<app-root class="h-full">
 			<svg
 				class="splash-screen"

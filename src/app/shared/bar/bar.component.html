@@ -1,143 +1,145 @@
-<svg
-	class="overflow-visible pb-6"
-	viewBox="0 0 411 90"
-	fill="none"
-	xmlns="http://www.w3.org/2000/svg"
->
-	<g filter="url(#filter0_d)">
-		<path
-			d="M303 37.5C309 50 349.5 77.5 411 77.5L411 0H357.5C336 0.333333 297 25 303 37.5Z"
-			fill="url(#paint0_linear)"
-		/>
-	</g>
-	<g filter="url(#filter1_d)">
-		<path
-			d="M0 18C0 50 96.5 74 175.5 74C251.272 74 312.5 59 366 0H0V18Z"
-			fill="url(#paint1_linear)"
-		/>
-	</g>
-	<g filter="url(#filter2_d)">
-		<path
-			d="M77 43.5C87.9333 23.5 99.5 8 151 0H1.36856e-05L0 84.5C36.5 84.5 61.1467 72.5 77 43.5Z"
-			fill="url(#paint2_linear)"
-		/>
-	</g>
-	<defs>
-		<filter
-			id="filter0_d"
-			x="262.38"
-			y="-36"
-			width="188.62"
-			height="157.5"
-			filterUnits="userSpaceOnUse"
-			color-interpolation-filters="sRGB"
-		>
-			<feFlood flood-opacity="0" result="BackgroundImageFix" />
-			<feColorMatrix
-				in="SourceAlpha"
-				type="matrix"
-				values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-			/>
-			<feOffset dy="4" />
-			<feGaussianBlur stdDeviation="20" />
-			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-			<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-			<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-		</filter>
-		<filter
-			id="filter1_d"
-			x="-40"
-			y="-36"
-			width="446"
-			height="154"
-			filterUnits="userSpaceOnUse"
-			color-interpolation-filters="sRGB"
-		>
-			<feFlood flood-opacity="0" result="BackgroundImageFix" />
-			<feColorMatrix
-				in="SourceAlpha"
-				type="matrix"
-				values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-			/>
-			<feOffset dy="4" />
-			<feGaussianBlur stdDeviation="20" />
-			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-			<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-			<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-		</filter>
-		<filter
-			id="filter2_d"
-			x="-40"
-			y="-36"
-			width="231"
-			height="164.5"
-			filterUnits="userSpaceOnUse"
-			color-interpolation-filters="sRGB"
-		>
-			<feFlood flood-opacity="0" result="BackgroundImageFix" />
-			<feColorMatrix
-				in="SourceAlpha"
-				type="matrix"
-				values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-			/>
-			<feOffset dy="4" />
-			<feGaussianBlur stdDeviation="20" />
-			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-			<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-			<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-		</filter>
-		<linearGradient
-			id="paint0_linear"
-			x1="277.529"
-			y1="2.01601e-05"
-			x2="387.5"
-			y2="214"
-			gradientUnits="userSpaceOnUse"
-		>
-			<stop offset="0.4375" stop-color="#B112A2" />
-			<stop offset="1" stop-color="#98118A" />
-		</linearGradient>
-		<linearGradient
-			id="paint1_linear"
-			x1="357.5"
-			y1="6.49996"
-			x2="164"
-			y2="155"
-			gradientUnits="userSpaceOnUse"
-		>
-			<stop stop-color="#46AAC0" />
-			<stop offset="1" stop-color="#0896B6" />
-		</linearGradient>
-		<linearGradient
-			id="paint2_linear"
-			x1="196"
-			y1="-0.000130623"
-			x2="-11.0001"
-			y2="194.5"
-			gradientUnits="userSpaceOnUse"
-		>
-			<stop offset="0.453125" stop-color="#FDB343" />
-			<stop offset="1" stop-color="#EF9A1B" />
-		</linearGradient>
-	</defs>
-</svg>
-<div class="fixed w-100 flex top-0 inset-x-0 p-6 justify-between">
-	<app-arrow *ngIf="!showLogo" (click)="back()" class="text-white cursor-pointer"></app-arrow>
-	<app-logo *ngIf="showLogo" class="w-9 -m-2"></app-logo>
-	<app-close *ngIf="showExit" (click)="exit.emit()" class="text-white"></app-close>
+<div class="relative">
 	<svg
-		*ngIf="showGuide"
-		class="w-6 -m-1 cursor-pointer"
-		routerLink="/onboarding"
-		fill="transparent"
+		class="overflow-visible pb-6"
+		viewBox="0 0 411 90"
+		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 31 31"
 	>
-		<path
-			fill-rule="evenodd"
-			clip-rule="evenodd"
-			d="M15.146 2C7.886 2 2 7.886 2 15.146c0 7.26 5.886 13.146 13.146 13.146 7.26 0 13.146-5.886 13.146-13.146C28.292 7.886 22.406 2 15.146 2zM0 15.146C0 6.78 6.781 0 15.146 0c8.365 0 15.146 6.781 15.146 15.146 0 8.365-6.781 15.146-15.146 15.146C6.78 30.292 0 23.51 0 15.146zm15.146-1a1 1 0 011 1v5.658a1 1 0 01-2 0v-5.658a1 1 0 011-1zm0-5.659a1 1 0 100 2h.01a1 1 0 100-2h-.01z"
-			fill="#fff"
-		/>
+		<g filter="url(#filter0_d)">
+			<path
+				d="M303 37.5C309 50 349.5 77.5 411 77.5L411 0H357.5C336 0.333333 297 25 303 37.5Z"
+				fill="url(#paint0_linear)"
+			/>
+		</g>
+		<g filter="url(#filter1_d)">
+			<path
+				d="M0 18C0 50 96.5 74 175.5 74C251.272 74 312.5 59 366 0H0V18Z"
+				fill="url(#paint1_linear)"
+			/>
+		</g>
+		<g filter="url(#filter2_d)">
+			<path
+				d="M77 43.5C87.9333 23.5 99.5 8 151 0H1.36856e-05L0 84.5C36.5 84.5 61.1467 72.5 77 43.5Z"
+				fill="url(#paint2_linear)"
+			/>
+		</g>
+		<defs>
+			<filter
+				id="filter0_d"
+				x="262.38"
+				y="-36"
+				width="188.62"
+				height="157.5"
+				filterUnits="userSpaceOnUse"
+				color-interpolation-filters="sRGB"
+			>
+				<feFlood flood-opacity="0" result="BackgroundImageFix" />
+				<feColorMatrix
+					in="SourceAlpha"
+					type="matrix"
+					values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+				/>
+				<feOffset dy="4" />
+				<feGaussianBlur stdDeviation="20" />
+				<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+				<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+				<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+			</filter>
+			<filter
+				id="filter1_d"
+				x="-40"
+				y="-36"
+				width="446"
+				height="154"
+				filterUnits="userSpaceOnUse"
+				color-interpolation-filters="sRGB"
+			>
+				<feFlood flood-opacity="0" result="BackgroundImageFix" />
+				<feColorMatrix
+					in="SourceAlpha"
+					type="matrix"
+					values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+				/>
+				<feOffset dy="4" />
+				<feGaussianBlur stdDeviation="20" />
+				<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+				<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+				<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+			</filter>
+			<filter
+				id="filter2_d"
+				x="-40"
+				y="-36"
+				width="231"
+				height="164.5"
+				filterUnits="userSpaceOnUse"
+				color-interpolation-filters="sRGB"
+			>
+				<feFlood flood-opacity="0" result="BackgroundImageFix" />
+				<feColorMatrix
+					in="SourceAlpha"
+					type="matrix"
+					values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+				/>
+				<feOffset dy="4" />
+				<feGaussianBlur stdDeviation="20" />
+				<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+				<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+				<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+			</filter>
+			<linearGradient
+				id="paint0_linear"
+				x1="277.529"
+				y1="2.01601e-05"
+				x2="387.5"
+				y2="214"
+				gradientUnits="userSpaceOnUse"
+			>
+				<stop offset="0.4375" stop-color="#B112A2" />
+				<stop offset="1" stop-color="#98118A" />
+			</linearGradient>
+			<linearGradient
+				id="paint1_linear"
+				x1="357.5"
+				y1="6.49996"
+				x2="164"
+				y2="155"
+				gradientUnits="userSpaceOnUse"
+			>
+				<stop stop-color="#46AAC0" />
+				<stop offset="1" stop-color="#0896B6" />
+			</linearGradient>
+			<linearGradient
+				id="paint2_linear"
+				x1="196"
+				y1="-0.000130623"
+				x2="-11.0001"
+				y2="194.5"
+				gradientUnits="userSpaceOnUse"
+			>
+				<stop offset="0.453125" stop-color="#FDB343" />
+				<stop offset="1" stop-color="#EF9A1B" />
+			</linearGradient>
+		</defs>
 	</svg>
+	<div class="absolute w-100 flex top-0 inset-x-0 p-6 justify-between">
+		<app-arrow *ngIf="!showLogo" (click)="back()" class="text-white cursor-pointer"></app-arrow>
+		<app-logo *ngIf="showLogo" class="w-9 -m-2"></app-logo>
+		<app-close *ngIf="showExit" (click)="exit.emit()" class="text-white"></app-close>
+		<svg
+			*ngIf="showGuide"
+			class="w-6 -m-1 cursor-pointer"
+			routerLink="/onboarding"
+			fill="transparent"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 31 31"
+		>
+			<path
+				fill-rule="evenodd"
+				clip-rule="evenodd"
+				d="M15.146 2C7.886 2 2 7.886 2 15.146c0 7.26 5.886 13.146 13.146 13.146 7.26 0 13.146-5.886 13.146-13.146C28.292 7.886 22.406 2 15.146 2zM0 15.146C0 6.78 6.781 0 15.146 0c8.365 0 15.146 6.781 15.146 15.146 0 8.365-6.781 15.146-15.146 15.146C6.78 30.292 0 23.51 0 15.146zm15.146-1a1 1 0 011 1v5.658a1 1 0 01-2 0v-5.658a1 1 0 011-1zm0-5.659a1 1 0 100 2h.01a1 1 0 100-2h-.01z"
+				fill="#fff"
+			/>
+		</svg>
+	</div>
 </div>
