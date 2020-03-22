@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "https://helpingagents.herokuapp.com/api/$1"
+        }
+    ]
+}

@@ -28,7 +28,7 @@ const options = {
 
 @Injectable()
 export class ApiService {
-	private readonly baseUrl = 'https://helpingagents.herokuapp.com/api';
+	private readonly baseUrl = '/api';
 
 	private cachedRegistration?: {
 		name: string;
