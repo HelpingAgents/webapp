@@ -33,6 +33,8 @@ export class ApiService {
 			phone_number: this.cachedRegistration.phone,
 			name: this.cachedRegistration.name,
 			code,
+		}, {
+			withCredentials: true
 		});
 	}
 }
