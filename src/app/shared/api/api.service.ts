@@ -1,8 +1,9 @@
-import { BehaviorSubject, Observable, combineLatest, of } from 'rxjs';
-import { catchError, delay, map, tap } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, of } from 'rxjs';
+import { catchError, map, tap, switchMap } from 'rxjs/operators';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 export enum OnlineStatus {
 	OnlineSuccess = 'OnlineSuccess',
@@ -28,7 +29,7 @@ const options = {
 
 @Injectable()
 export class ApiService {
-	private readonly baseUrl = 'https://helpingagents.herokuapp.com/api';
+	private readonly baseUrl = 'http://localhost:8000/api';
 
 	private cachedRegistration?: {
 		name: string;
@@ -53,7 +54,7 @@ export class ApiService {
 		})
 	);
 
-	constructor(private http: HttpClient) {
+	constructor(private http: HttpClient, private router: Router) {
 		this.getProfile().subscribe();
 	}
 
@@ -88,6 +89,14 @@ export class ApiService {
 			.pipe(tap(() => this.triedLogin$.next(false)));
 	}
 
+	logout() {
+		return this.http
+			.post(
+				`${this.baseUrl}/auth/logout/`, null,
+				options
+			).pipe(switchMap(() => this.getProfile()))
+	}
+
 	goOnline() {
 		return this.patchProfile({ accepting_calls: true });
 	}
@@ -111,6 +120,7 @@ export class ApiService {
 			tap(responseProfile => this.profile$.next(responseProfile)),
 			tap(() => this.triedLogin$.next(true)),
 			catchError(() => {
+				this.router.navigate(["/"])
 				this.triedLogin$.next(true);
 				return of(undefined);
 			})

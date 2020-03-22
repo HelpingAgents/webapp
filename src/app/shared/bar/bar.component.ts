@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { ApiService } from 'src/app/shared/api/api.service';
 
 @Component({
 	selector: 'app-bar',
@@ -9,17 +9,23 @@ import { Router } from '@angular/router';
 	styleUrls: ['./bar.component.scss'],
 })
 export class BarComponent implements OnInit {
-	constructor(private location: Location) {}
+	settingsOpened = false
+	constructor(private location: Location,
+		private apiService: ApiService,
+		) {}
 
 	@Input() showExit = false;
 	@Input() showLogo = false;
-	@Input() showGuide = false;
+	@Input() showSettings = false;
 
 	@Output() exit = new EventEmitter();
 
-	ngOnInit(): void {}
+	ngOnInit(): void {	}
 
 	back() {
 		this.location.back();
+	}
+	logout() {
+		this.apiService.logout().subscribe();
 	}
 }
