@@ -50,7 +50,6 @@ export class RegisterComponent implements OnInit {
 		);
 
 		this.apiService.requestLogin().subscribe();
-
 		this.router.navigate(['verify-progress']);
 	}
 }

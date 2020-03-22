@@ -24,6 +24,17 @@ p {
 	@apply mb-3;
 }
 
+button,
+.button,
+.no-tap-highlight {
+	@apply select-none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+*:focus {
+	@apply outline-none;
+}
+
 .screen {
 	@apply p-10;
 }

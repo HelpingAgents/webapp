@@ -28,7 +28,7 @@
 	<app-online-slider
 		(click)="toggleOnline()"
 		[online]="clientOnline$ | async"
-		class="px-14 block mb-5"
+		class="px-14 block mb-5 select-none"
 	></app-online-slider>
 	<span class="control-error text-primary text-center text-sm" [class.show]="clientOnline$ | async">
 		Tippe auf den Schalter, um offline zu gehen
