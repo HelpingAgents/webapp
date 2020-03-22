@@ -73,7 +73,7 @@ button,
 }
 
 .control-error {
-	@apply text-secondary text-sm px-3 leading-loose overflow-visible max-h-0 
+	@apply text-secondary text-sm px-3 leading-loose overflow-visible max-h-0
 	opacity-0 duration-100 transition-opacity;
 
 	&.show {
@@ -84,4 +84,5 @@ button,
 .button {
 	@apply bg-primary text-white rounded-lg p-6 text-md shadow-lg;
 	@extend .bg-gradient-primary;
+	line-height: 0;
 }
