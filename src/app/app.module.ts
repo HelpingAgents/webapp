@@ -7,7 +7,7 @@ import { BarComponent } from './shared/bar/bar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CarouselComponent } from './shared/carousel/carousel.component';
 import { CarouselControlComponent } from './shared/carousel-control/carousel-control.component';
-import { CheckmarkComponent } from './checkmark/checkmark.component';
+import { CheckmarkComponent } from './shared/checkmark/checkmark.component';
 import { CloseComponent } from './shared/close/close.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IntroductionComponent } from './pages/introduction/introduction.component';
