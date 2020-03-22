@@ -1,5 +1,5 @@
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { delay, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, combineLatest, of } from 'rxjs';
+import { catchError, delay, map, tap } from 'rxjs/operators';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -16,6 +16,12 @@ export interface Profile {
 	accepting_calls: boolean;
 }
 
+export enum LoginStatus {
+	Success,
+	NotTried,
+	Failure,
+}
+
 const options = {
 	withCredentials: true,
 };
@@ -30,6 +36,22 @@ export class ApiService {
 	};
 
 	public profile$ = new BehaviorSubject<Profile>(undefined);
+
+	private triedLogin$ = new BehaviorSubject<boolean>(false);
+
+	public loginStatus = combineLatest([this.profile$, this.triedLogin$]).pipe(
+		map(([profile, tried]) => {
+			if (profile) {
+				return LoginStatus.Success;
+			}
+
+			if (tried) {
+				return LoginStatus.Failure;
+			}
+
+			return LoginStatus.NotTried;
+		})
+	);
 
 	constructor(private http: HttpClient) {
 		this.getProfile().subscribe();
@@ -83,9 +105,14 @@ export class ApiService {
 	}
 
 	getProfile() {
-		return this.http
-			.get<Profile>(`${this.baseUrl}/auth/profile/info/`, options)
-			.pipe(tap(responseProfile => this.profile$.next(responseProfile)));
+		return this.http.get<Profile>(`${this.baseUrl}/auth/profile/info/`, options).pipe(
+			tap(responseProfile => this.profile$.next(responseProfile)),
+			tap(() => this.triedLogin$.next(true)),
+			catchError(() => {
+				this.triedLogin$.next(true);
+				return of(undefined);
+			})
+		);
 	}
 
 	getCachedRegistration() {
