@@ -1,7 +1,7 @@
 import { ApiService, OnlineStatus } from 'src/app/shared/api/api.service';
 import { BehaviorSubject, ReplaySubject, combineLatest } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { first, map } from 'rxjs/operators';
+import { filter, first, map } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-main',
@@ -15,6 +15,7 @@ export class MainComponent implements OnInit {
 	profile$ = this.apiService.profile$;
 
 	onlineStatus$ = combineLatest([this.profile$, this.loading$]).pipe(
+		filter(([profile]) => !!profile),
 		map(([{ accepting_calls }, loading]) => {
 			if (accepting_calls && loading) {
 				return OnlineStatus.OfflineLoading;
