@@ -36,6 +36,10 @@ p {
 			theme('colors.primary.default') 67.38%
 		);
 	}
+
+	&-gray {
+		background: linear-gradient(192.06deg, #dddddd -4.52%, #f4f4f4 78.22%);
+	}
 }
 
 .control {

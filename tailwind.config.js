@@ -6,6 +6,7 @@ module.exports = {
 				lightgray: '#FAFAFA',
 				mediumgray: '#DDDDDD',
 				mixedgray: '#AAAAAA',
+				somegray: '#777777',
 
 				blue: '#20639b',
 				white: 'white',
@@ -55,7 +56,7 @@ module.exports = {
 		},
 		boxShadow: {
 			lg: '0px 4px 40px rgba(0, 0, 0, 0.25)',
-			inner: 'inner 0px 4px 10px rgba(0, 0, 0, 0.25)',
+			inner: 'inset 0px 4px 10px rgba(0, 0, 0, 0.25)',
 		},
 	},
 	variants: {},
