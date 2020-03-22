@@ -122,6 +122,7 @@
 	</defs>
 </svg>
 <div class="fixed w-100 flex top-0 inset-x-0 p-6 justify-between">
-	<app-arrow (click)="back()" class="text-white cursor-pointer"></app-arrow>
+	<app-arrow *ngIf="!showLogo" (click)="back()" class="text-white cursor-pointer"></app-arrow>
+	<app-logo *ngIf="showLogo" class="w-9 -m-2"></app-logo>
 	<app-close *ngIf="showExit" (click)="exit.emit()" class="text-white"></app-close>
 </div>

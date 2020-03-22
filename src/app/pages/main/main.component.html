@@ -2,7 +2,7 @@
 	class="flex flex-col h-full p-8"
 	*ngIf="(onlineStatus$ | async) || OnlineStatus.OfflineLoading as onlineStatus"
 >
-	<app-bar class="-mx-8 -mt-8"></app-bar>
+	<app-bar [showLogo]="true" class="-mx-8 -mt-8"></app-bar>
 	<h3 class="text-center">Hallo {{ (profile$ | async)?.name }}</h3>
 	<div
 		class="shadow-inner p-4 w-100 mt-10 mb-5  

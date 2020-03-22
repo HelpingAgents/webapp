@@ -12,6 +12,7 @@ export class BarComponent implements OnInit {
 	constructor(private location: Location) {}
 
 	@Input() showExit = false;
+	@Input() showLogo = false;
 
 	@Output() exit = new EventEmitter();
 
