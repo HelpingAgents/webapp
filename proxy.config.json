@@ -1,0 +1,7 @@
+{
+    "/api": {
+        "target": "https://helpingagents.herokuapp.com",
+        "secure": true,
+        "changeOrigin": true
+    }
+}
