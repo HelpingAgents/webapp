@@ -3,7 +3,7 @@
 	<div class="flex flex-grow flex-col items-center w-full px-8">
 		<h3 [ngSwitch]="status" class="mb-12">
 			<span *ngSwitchCase="VerificationStatus.LOADING">Warte auf SMS-Code...</span>
-			<span *ngSwitchCase="VerificationStatus.SUCCESS">Alles klar, es kann losgehn!</span>
+			<span *ngSwitchCase="VerificationStatus.SUCCESS">Alles klar, es kann losgehen!</span>
 			<span *ngSwitchCase="VerificationStatus.ERROR">Falscher Code...</span>
 		</h3>
 		<app-verification-loader [status]="status" class="w-40"></app-verification-loader>

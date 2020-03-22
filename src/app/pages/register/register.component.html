@@ -15,7 +15,7 @@
 			</p>
 		</div>
 		<form [formGroup]="form" class="flex-grow flex flex-col">
-			<input formControlName="name" class="control w-full" placeholder="Vorname" type="text" />
+			<input formControlName="name" class="control w-full" placeholder="Vorname" type="text" autocomplete="given-name"/>
 			<span class="control-error" [class.show]="displayError('name', 'required')">
 				Brauchen wir um dich ein bisschen besser kennenzulernen.
 			</span>
@@ -24,6 +24,7 @@
 				class="control w-full mt-8"
 				placeholder="Telefonnummer"
 				type="tel"
+				autocomplete="tel"
 			/>
 			<span class="control-error" [class.show]="displayError('phone', 'required')">
 				Ohne Telefonnummer geht’s leider nicht.
