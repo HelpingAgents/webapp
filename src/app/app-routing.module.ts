@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { IntroductionComponent } from './pages/introduction/introduction.component';
 import { LandingComponent } from './pages/landing/landing.component';
+import { MainComponent } from './pages/main/main.component';
 import { NgModule } from '@angular/core';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -33,6 +34,10 @@ const routes: Routes = [
 	{
 		path: 'onboarding',
 		component: OnboardingComponent,
+	},
+	{
+		path: 'main',
+		component: MainComponent,
 	},
 ];
 

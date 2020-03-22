@@ -7,11 +7,13 @@ import { BarComponent } from './shared/bar/bar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CarouselComponent } from './shared/carousel/carousel.component';
 import { CarouselControlComponent } from './shared/carousel-control/carousel-control.component';
+import { CheckmarkComponent } from './checkmark/checkmark.component';
 import { CloseComponent } from './shared/close/close.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IntroductionComponent } from './pages/introduction/introduction.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { LogoComponent } from './shared/logo/logo.component';
+import { MainComponent } from './pages/main/main.component';
 import { NgModule } from '@angular/core';
 import { NguCarouselModule } from '@ngu/carousel';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
@@ -22,7 +24,6 @@ import { VerificationLoaderComponent } from './shared/verification-loader/verifi
 import { VerifyAgainComponent } from './pages/verify-again/verify-again.component';
 import { VerifyProgressComponent } from './pages/verify-progress/verify-progress.component';
 import { environment } from '../environments/environment';
-import { CheckmarkComponent } from './checkmark/checkmark.component';
 
 @NgModule({
 	declarations: [
@@ -42,6 +43,7 @@ import { CheckmarkComponent } from './checkmark/checkmark.component';
 		CarouselComponent,
 		VerificationLoaderComponent,
 		CheckmarkComponent,
+		MainComponent,
 	],
 	imports: [
 		BrowserModule,
