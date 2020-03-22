@@ -1,5 +1,5 @@
 {
-    "routes": [
+    "rewrites": [
         {
             "source": "/api/(.*)",
             "destination": "https://helpingagents.herokuapp.com/$1"
