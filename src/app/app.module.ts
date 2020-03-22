@@ -17,6 +17,7 @@ import { MainComponent } from './pages/main/main.component';
 import { NgModule } from '@angular/core';
 import { NguCarouselModule } from '@ngu/carousel';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
+import { OnlineSliderComponent } from './shared/online-slider/online-slider.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './pages/register/register.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -44,6 +45,7 @@ import { environment } from '../environments/environment';
 		VerificationLoaderComponent,
 		CheckmarkComponent,
 		MainComponent,
+		OnlineSliderComponent,
 	],
 	imports: [
 		BrowserModule,

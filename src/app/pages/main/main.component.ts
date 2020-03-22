@@ -66,7 +66,7 @@ export class MainComponent implements OnInit {
 	constructor(private apiService: ApiService) {}
 
 	ngOnInit() {
-		this.apiService.getProfile();
+		this.apiService.getProfile().subscribe();
 	}
 
 	async toggleOnline() {
