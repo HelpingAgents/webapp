@@ -11,8 +11,4 @@ export class OnlineSliderComponent implements OnInit {
 	constructor() {}
 
 	ngOnInit(): void {}
-
-	ngOnChanges() {
-		console.log(this.online);
-	}
 }

@@ -96,15 +96,16 @@
 		<div class="h-full">
 			<svg
 				class="h-full"
+				[ngClass]="{ 'opacity-0': online, 'translate-x-1/2': online, 'ml-1/2': online }"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 72 72"
-				[class.online]="online"
 			>
-				<circle cx="36" cy="36" r="36" fill="url(#grab_svg__grab_svg__paint0_linear)" />
+				<circle cx="36" cy="36" r="36" fill="url(#grab_svg__paint0_linear)" />
+				<path fill="#086D83" d="M29 24h3v24h-3zM35 24h3v24h-3zM41 24h3v24h-3z" />
 				<defs>
 					<linearGradient
-						id="grab_svg__grab_svg__paint0_linear"
+						id="grab_svg__paint0_linear"
 						x1="70.328"
 						y1="6.324"
 						x2="11.265"
@@ -117,24 +118,25 @@
 				</defs>
 			</svg>
 			<svg
-				class="h-full"
+				class="h-full -translate-y-full transform"
+				[ngClass]="{ 'opacity-0': !online, 'translate-x-1/2': online, 'ml-1/2': online }"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 72 72"
-				[class.online]="online"
 			>
-				<circle cx="36" cy="36" r="36" fill="url(#grab_svg__grab_svg__paint0_linear)" />
+				<circle cx="36" cy="36" r="36" fill="url(#grab-online_svg__paint0_linear)" />
+				<path fill="#CCC" d="M29 24h3v24h-3zM35 24h3v24h-3zM41 24h3v24h-3z" />
 				<defs>
 					<linearGradient
-						id="grab_svg__grab_svg__paint0_linear"
-						x1="70.328"
-						y1="6.324"
-						x2="11.265"
-						y2="15.489"
+						id="grab-online_svg__paint0_linear"
+						x1="36"
+						y1="72"
+						x2="62.667"
+						y2="65.598"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stop-color="#46AAC0" />
-						<stop offset="1" stop-color="#0896B6" />
+						<stop stop-color="#DDD" />
+						<stop offset="1" stop-color="#EEE" />
 					</linearGradient>
 				</defs>
 			</svg>
