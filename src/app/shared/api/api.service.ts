@@ -75,15 +75,17 @@ export class ApiService {
 	}
 
 	login(code: string) {
-		return this.http.post(
-			`${this.baseUrl}/auth/login/`,
-			{
-				phone_number: this.cachedRegistration.phone,
-				name: this.cachedRegistration.name,
-				code,
-			},
-			options
-		);
+		return this.http
+			.post(
+				`${this.baseUrl}/auth/login/`,
+				{
+					phone_number: this.cachedRegistration.phone,
+					name: this.cachedRegistration.name,
+					code,
+				},
+				options
+			)
+			.pipe(tap(() => this.triedLogin$.next(false)));
 	}
 
 	goOnline() {
@@ -105,8 +107,6 @@ export class ApiService {
 	}
 
 	getProfile() {
-		this.triedLogin$.next(false);
-
 		return this.http.get<Profile>(`${this.baseUrl}/auth/profile/info/`, options).pipe(
 			tap(responseProfile => this.profile$.next(responseProfile)),
 			tap(() => this.triedLogin$.next(true)),

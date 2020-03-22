@@ -14,7 +14,7 @@
 				<strong>Corona Helping Agent</strong> für dich natürlich absolut kostenfrei.
 			</p>
 		</div>
-		<form [formGroup]="form" class="flex-grow flex flex-col">
+		<form [formGroup]="form" class="flex-grow flex flex-col" (submit)="verify()">
 			<input
 				formControlName="name"
 				class="control w-full"

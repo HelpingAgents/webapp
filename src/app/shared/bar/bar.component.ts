@@ -13,6 +13,7 @@ export class BarComponent implements OnInit {
 
 	@Input() showExit = false;
 	@Input() showLogo = false;
+	@Input() showGuide = false;
 
 	@Output() exit = new EventEmitter();
 

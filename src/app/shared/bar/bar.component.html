@@ -125,4 +125,19 @@
 	<app-arrow *ngIf="!showLogo" (click)="back()" class="text-white cursor-pointer"></app-arrow>
 	<app-logo *ngIf="showLogo" class="w-9 -m-2"></app-logo>
 	<app-close *ngIf="showExit" (click)="exit.emit()" class="text-white"></app-close>
+	<svg
+		*ngIf="showGuide"
+		class="w-6 -m-1 cursor-pointer"
+		routerLink="/onboarding"
+		fill="transparent"
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 31 31"
+	>
+		<path
+			fill-rule="evenodd"
+			clip-rule="evenodd"
+			d="M15.146 2C7.886 2 2 7.886 2 15.146c0 7.26 5.886 13.146 13.146 13.146 7.26 0 13.146-5.886 13.146-13.146C28.292 7.886 22.406 2 15.146 2zM0 15.146C0 6.78 6.781 0 15.146 0c8.365 0 15.146 6.781 15.146 15.146 0 8.365-6.781 15.146-15.146 15.146C6.78 30.292 0 23.51 0 15.146zm15.146-1a1 1 0 011 1v5.658a1 1 0 01-2 0v-5.658a1 1 0 011-1zm0-5.659a1 1 0 100 2h.01a1 1 0 100-2h-.01z"
+			fill="#fff"
+		/>
+	</svg>
 </div>
