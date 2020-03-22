@@ -10,47 +10,53 @@
 		[class.opacity-100]="carousel.lastSlideActive"
 		[class.pointer-events-none]="!carousel.lastSlideActive"
 	>
-		<button class="button w-full" [routerLink]="'/main'">Telefonleitfaden schließen</button>
+		<button class="button w-full" [routerLink]="'/main'">Einführung schließen</button>
 	</div>
 	<app-carousel-control [carousel]="carousel" class="mt-6 px-8"></app-carousel-control>
 </div>
 
 <ng-template #greeting>
 	<div class="px-8">
-		<h3 class="mb-6">1. Begrüßung</h3>
+		<h3 class="mb-6">1. Die App</h3>
 		<p>
-			Mit einer netten Begrüßung wird doch jeder gerne angesprochen. Lorem ipsum dolor sit amet,
-			consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-			aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-			ea commodo consequat.
+			Schön, dass du uns als <strong>HelpingAgent</strong> unterstützt und mithilfst, die Welt zu
+			einem noch besseren Ort zu machen.
 		</p>
 		<p class="mb-8">
-			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-			mollit anim id est laborum.
+			Nachdem du dich nun mit deiner Telefonnummer verifiziert hast, musst du gleich nur noch einen
+			Schalter in der App betätigen und schon bist du online und kannst Anrufe von hilfsbedürftigen
+			Menschen empfangen. Du kannst natürlich auch jederzeit wieder ausschalten und offline gehen,
+			dann werden auch keine Anrufe mehr an dich durchgestellt.
 		</p>
-		<em class="text-primary text-md font-serif">
+		<p>
+			Sobald du online bist, kommst du mit in eine Zufallsschleife, d.h. Hotline-Anrufer werden mit
+			einem aktiven zufällig ausgewählten <strong>HelpingAgent</strong> verbunden. Es kann also
+			sein, dass es ein bisschen dauert, bis du einen Anruf erhältst.
+		</p>
+		<!-- <em class="text-primary text-md font-serif">
 			"Schönen guten Tag, hier ist die Helfer-Vermittlung. Mein Name ist Monika, was kann ich für
 			Sie tun?"
-		</em>
+		</em> -->
 	</div>
 </ng-template>
 
 <ng-template #smalltalk>
 	<div class="px-8">
-		<h3 class="mb-6">2. Smalltalk</h3>
+		<h3 class="mb-6">2. Begrüßung & Smalltalk</h3>
 		<p>
-			Viele Menschen in Quarantäne fühlen sich einsam und reden deshalb gerne. Bleib höflich, hör
-			zu, frag ggf. mal nach und bring das Gespräch dann langsam auf die Hilfe, die der Anrufer
-			benötigt. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			Sobald du online gehst, bist du für Hilfsbedürftie unter dieser Nummer erreichbar: <br />
+			<strong>+32 (0) 460 237 268</strong>
 		</p>
 		<p class="mb-8">
-			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-			mollit anim id est laborum.
+			Beim Annehmen eines Anufs solltest du den Anrufer freundlich begrüßen und sagen, dass du
+			Monika vom Corona-Hilfstelefon bist. Viele Menschen in Quarantäne fühlen sich einsam und reden
+			deshalb gerne. Es kann also sein, dass der Anrufer nicht sofort auf die benötigte Hilfe zu
+			sprechen kommt. Bleib höflich, hör zu, frag ggf. mal nach und bring das Gespräch dann langsam
+			auf die Hilfe, die der Anrufer benötigt.
 		</p>
 		<em class="text-primary text-md font-serif">
-			“Wie ist denn das Wetter bei Ihnen in XXX? ... Ach, dann will man ja eh nicht rausgehen.”
+			"Schönen guten Tag, hier ist das Corona-Hilfstelefon. Mein Name ist Monika, was kann ich für
+			Sie tun?"
 		</em>
 	</div>
 </ng-template>
@@ -63,13 +69,14 @@
 			Daten temporär festhalten kannst. Frage nach folgenden Dingen:
 		</p>
 		<ol>
-			<li>Name und Vorname</li>
-			<li>Telefonnummer</li>
-			<li>Postleitzahl / Ort</li>
-			<li>Welche Art von Hilfe wird benötigt</li>
+			<li><strong>Name und Vorname</strong></li>
+			<li><strong>Telefonnummer</strong></li>
+			<li><strong>Postleitzahl / Ort</strong></li>
+			<li><strong>Welche Art von Hilfe wird benötigt</strong></li>
 		</ol>
 		<p class="mb-8">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			Nach dem Telefonat kannst du die Daten per Klick auf den Button “Jetzt Hilfegesuch eintragen”
+			bei unserer Partnerplattfom einstellen, sodass potenzielle Helfer aktiv werden können.
 		</p>
 		<em class="text-primary text-md font-serif">
 			“Ich muss nun kurz einige Daten von Ihnen abfragen, damit wir Ihnen bestmöglich helfen
