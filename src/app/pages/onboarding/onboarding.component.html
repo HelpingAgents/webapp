@@ -4,7 +4,14 @@
 		#carousel
 		[templates]="[greeting, smalltalk, data, agreement, completion]"
 	></app-carousel>
-	<div class="flex-grow"></div>
+	<div
+		class="flex-grow w-full flex flex-col justify-center px-8 
+	opacity-0 transition-opacity duration-100"
+		[class.opacity-100]="carousel.lastSlideActive"
+		[class.pointer-events-none]="!carousel.lastSlideActive"
+	>
+		<button class="button w-full" [routerLink]="'/main'">Telefonleitfaden schließen</button>
+	</div>
 	<app-carousel-control [carousel]="carousel" class="mt-6 px-8"></app-carousel-control>
 </div>
 
