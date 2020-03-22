@@ -48,6 +48,8 @@ export class VerifyProgressComponent implements OnInit {
 	}
 
 	focusNext(nativeElement: any) {
+		this.status = VerificationStatus.LOADING;
+
 		const next = nativeElement.nextElementSibling;
 
 		if (!next) {

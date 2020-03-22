@@ -11,7 +11,7 @@ import { filter, first, map } from 'rxjs/operators';
 export class MainComponent implements OnInit {
 	OnlineStatus = OnlineStatus;
 
-	loading$ = new BehaviorSubject(true);
+	loading$ = new BehaviorSubject(false);
 	profile$ = this.apiService.profile$;
 
 	onlineStatus$ = combineLatest([this.profile$, this.loading$]).pipe(
@@ -48,6 +48,27 @@ export class MainComponent implements OnInit {
 		})
 	);
 
+	statusCard$ = this.onlineStatus$.pipe(
+		map(status => {
+			switch (status) {
+				case OnlineStatus.OnlineSuccess:
+				case OnlineStatus.OfflineLoading: {
+					return {
+						title: 'Du bist Online',
+						text: 'Anrufe können an dich durchgestellt werden.',
+					};
+				}
+				case OnlineStatus.OfflineSuccess:
+				case OnlineStatus.OnlineLoading: {
+					return {
+						title: 'Du bist Offline',
+						text: 'Es werden keine Anrufe an dich durchgestellt.',
+					};
+				}
+			}
+		})
+	);
+
 	pointClasses$ = this.onlineStatus$.pipe(
 		map(status => {
 			switch (status) {
@@ -71,6 +92,7 @@ export class MainComponent implements OnInit {
 
 	async toggleOnline() {
 		const onlineStatus = await this.onlineStatus$.pipe(first()).toPromise();
+		console.log(onlineStatus);
 
 		if (onlineStatus === OnlineStatus.OnlineSuccess) {
 			this.loading$.next(true);

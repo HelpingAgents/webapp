@@ -3,44 +3,27 @@
 	*ngIf="(onlineStatus$ | async) || OnlineStatus.OfflineLoading as onlineStatus"
 >
 	<app-bar class="-mx-8 -mt-8"></app-bar>
-	<h3>Hallo {{ (profile$ | async)?.name }}</h3>
+	<h3 class="text-center">Hallo {{ (profile$ | async)?.name }}</h3>
 	<div
 		class="shadow-inner p-4 w-100 mt-10 mb-5  
 		flex flex-col align-middle border-0 rounded-md text-center"
 		[ngClass]="statusBoxClasses$ | async"
-		[ngSwitch]="onlineStatus"
 	>
-		<ng-template [ngSwitchCase]="OnlineStatus.OnlineSuccess">
-			<h3>Du bist Online</h3>
-			<span class="text-13">
-				Anrufe können an dich durchgestellt werden.
-			</span>
-		</ng-template>
-		<ng-template [ngSwitchCase]="OnlineStatus.OfflineLoading">
-			<h3>Du bist Online</h3>
-			<span class="text-13">
-				Anrufe können an dich durchgestellt werden.
-			</span>
-		</ng-template>
-		<ng-template [ngSwitchCase]="OnlineStatus.OfflineSuccess">
-			<h3>Du bist Offline</h3>
-			<span class="text-13">
-				Es werden keine Anrufe an dich durchgestellt.
-			</span>
-		</ng-template>
-		<ng-template [ngSwitchCase]="OnlineStatus.OnlineLoading">
-			<h3>Du bist Offline</h3>
-			<span class="text-13">
-				Es werden keine Anrufe an dich durchgestellt.
-			</span>
-		</ng-template>
+		<h3>{{ (statusCard$ | async)?.title }}</h3>
+		<span class="text-13">
+			{{ (statusCard$ | async)?.text }}
+		</span>
 	</div>
-	<div class="flex flex-col items-center mb-5">
+	<div
+		class="flex flex-col items-center mb-5"
+		[class.delay-n-inverted]="onlineStatus === OnlineStatus.OnlineLoading"
+		[class.delay-n]="onlineStatus === OnlineStatus.OfflineLoading"
+	>
 		<div
 			class="rounded-full w-2 h-2 my-3"
 			[ngClass]="pointClasses$ | async"
 			*ngFor="let _ of [].constructor(4)"
 		></div>
 	</div>
-	<app-online-slider (click)="toggleOnline()"></app-online-slider>
+	<button class="button" (click)="toggleOnline()"></button>
 </div>
