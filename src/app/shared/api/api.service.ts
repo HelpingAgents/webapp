@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
 import { delay } from 'rxjs/operators';
 
 export enum OnlineStatus {
-	OnlineSuccess,
-	OnlineLoading,
-	OfflineSuccess,
-	OfflineLoading,
+	OnlineSuccess = 'OnlineSuccess',
+	OnlineLoading = 'OnlineLoading',
+	OfflineSuccess = 'OfflineSuccess',
+	OfflineLoading = 'OfflineLoading',
 }
 
 @Injectable()
@@ -32,9 +32,15 @@ export class ApiService {
 	}
 
 	requestLogin() {
-		return this.http.post(`${this.baseUrl}/auth/login/request/`, {
-			phone_number: this.cachedRegistration.phone,
-		});
+		return this.http.post(
+			`${this.baseUrl}/auth/login/request/`,
+			{
+				phone_number: this.cachedRegistration.phone,
+			},
+			{
+				withCredentials: true,
+			}
+		);
 	}
 
 	login(code: string) {
@@ -47,21 +53,25 @@ export class ApiService {
 
 	goOnline() {
 		this.onlineStatus$.next(OnlineStatus.OnlineLoading);
-
-		of(true)
-			.pipe(delay(700))
-			.subscribe(() => {
-				this.onlineStatus$.next(OnlineStatus.OnlineSuccess);
-			});
+		this.patchProfile({ accepting_calls: true }).subscribe(() => {
+			this.onlineStatus$.next(OnlineStatus.OnlineSuccess);
+		});
 	}
 
 	goOffline() {
 		this.onlineStatus$.next(OnlineStatus.OfflineLoading);
+		this.patchProfile({ accepting_calls: false }).subscribe(() => {
+			this.onlineStatus$.next(OnlineStatus.OnlineSuccess);
+		});
+	}
 
-		of(true)
-			.pipe(delay(700))
-			.subscribe(() => {
-				this.onlineStatus$.next(OnlineStatus.OfflineSuccess);
-			});
+	patchProfile(
+		profile: {
+			accepting_calls?: boolean;
+		} = {}
+	) {
+		return this.http.patch(`${this.baseUrl}/auth/profile/update/`, profile, {
+			withCredentials: true,
+		});
 	}
 }

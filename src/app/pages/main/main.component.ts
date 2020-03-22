@@ -11,12 +11,13 @@ import { map } from 'rxjs/operators';
 export class MainComponent implements OnInit {
 	OnlineStatus = OnlineStatus;
 	onlineStatus$ = this.apiService.onlineStatus$;
+
 	statusBoxClasses$ = this.onlineStatus$.pipe(
 		map(status => {
 			switch (status) {
 				case OnlineStatus.OnlineSuccess:
 				case OnlineStatus.OnlineLoading: {
-					return ['text-white'];
+					return ['text-white', 'bg-gradient-success'];
 				}
 				case OnlineStatus.OfflineLoading:
 				case OnlineStatus.OfflineSuccess: {
@@ -25,6 +26,22 @@ export class MainComponent implements OnInit {
 			}
 		})
 	);
+
+	pointClasses$ = this.onlineStatus$.pipe(
+		map(status => {
+			switch (status) {
+				case OnlineStatus.OnlineSuccess:
+				case OnlineStatus.OnlineLoading: {
+					return ['bg-success'];
+				}
+				case OnlineStatus.OfflineLoading:
+				case OnlineStatus.OfflineSuccess: {
+					return ['bg-mediumgray'];
+				}
+			}
+		})
+	);
+
 	constructor(private apiService: ApiService) {}
 
 	ngOnInit() {}
